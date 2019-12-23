@@ -1,1 +1,5 @@
-<p>main-menu works!</p>
+<div class="menu-container">
+    <nav class="menu-list">
+        <a *ngFor="let item of menu" (click)="navigate(item.value)">{{item.title | uppercase}}</a>
+    </nav>
+</div>

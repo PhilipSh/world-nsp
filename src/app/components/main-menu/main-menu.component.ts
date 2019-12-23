@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { MenuItem } from 'src/app/models/menu-item';
 
 @Component({
   selector: 'app-main-menu',
@@ -7,7 +9,21 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MainMenuComponent implements OnInit {
 
-  constructor() { }
+  menu: MenuItem[] = [
+    {title: 'Главная', value: '/'},
+    {title: 'Новости и акции', value: '/news'},
+    {title: 'Как купить продукцию', value: '/buy'},
+    {title: 'Партнерское соглашение', value: '/partnership'},
+  ]
+
+
+  constructor(
+    private router : Router
+  ) { }
+
+  navigate(route: string){
+    this.router.navigate([route])
+  }
 
   ngOnInit() {
   }

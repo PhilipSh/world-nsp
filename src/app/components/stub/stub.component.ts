@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 
-import { faLink } from '@fortawesome/free-solid-svg-icons'; 
 
 @Component({
   selector: 'app-stub',
@@ -8,8 +7,6 @@ import { faLink } from '@fortawesome/free-solid-svg-icons';
   styleUrls: ['./stub.component.scss']
 })
 export class StubComponent implements OnInit {
-
-  faLink = faLink;
 
   constructor() { }
 

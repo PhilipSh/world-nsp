@@ -6,14 +6,13 @@ import { AppComponent } from './app.component';
 import * as cs from './components/index';
 
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
-import { MainMenuComponent } from './components/main-menu/main-menu.component';
-import { HeaderComponent } from './components/header/header.component';
-import { FooterComponent } from './components/footer/footer.component';
+
 
 @NgModule({
   declarations: [
     AppComponent,
-    cs.StubComponent, cs.MainMenuComponent, HeaderComponent, FooterComponent
+    cs.StubComponent, cs.MainMenuComponent, cs.HeaderComponent, cs.FooterComponent,
+    cs.NewsComponent, cs.PartnershipComponent, cs.BuyProductsComponent
   ],
   imports: [
     BrowserModule,
