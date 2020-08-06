@@ -1,17 +1,41 @@
-header{
-    height: 100%;
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-}
-
-img{
-    height: 5em;
-    margin: 0 1em;
-}
-
-@media only screen and (max-width: 1000px){
+:host{
+    position: sticky;
+    top: 0px;
     header{
-        justify-content: start;
+        height: 100%;
+        width: 1200px;
+        margin: 0 auto;
+        background-color: #fff;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+    img{
+        height: 5em;
+        margin: 0 1em;
+    }
+}
+
+@media only screen and (max-width: 1366px){
+    :host header{
+        width: 1000px;
+    }
+}
+
+@media only screen and (max-width: 1024px){
+    :host header{
+        width: 700px;
+    }
+}
+
+@media only screen and (max-width: 768px){
+    :host header{
+        width: 300px;
+    }
+}
+
+@media only screen and (max-width: 360px){
+    :host header{
+        // TODO: mobile layout
     }
 }

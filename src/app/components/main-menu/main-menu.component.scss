@@ -1,6 +1,6 @@
 .menu-container{
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
     align-items: center;
     padding: 0 2em;
     font-size: 12px;
@@ -10,15 +10,15 @@
     a{
         cursor: pointer;
         white-space: nowrap;
-        padding: 0 2em;
+        // padding: 0 2em;
     }
     a:hover{
         text-decoration: underline;
     }
 }
 
-@media only screen and (max-width: 1000px){
-    .menu-list{
-        display: none;
-    }
-}
+// @media only screen and (max-width: 1000px){
+//     .menu-list{
+//         display: none;
+//     }
+// }

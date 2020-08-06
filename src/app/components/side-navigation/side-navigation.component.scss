@@ -1,0 +1,15 @@
+aside{
+    position: -webkit-sticky;
+    position: sticky;
+    top: calc(80px + 1em);
+    display: flex;
+    flex-direction: column;
+    :not(:last-child){
+        margin-bottom: 0.5em;
+    }
+}
+a{  
+    font-size: 12px;
+    color: #666;
+    text-decoration: none;
+}
