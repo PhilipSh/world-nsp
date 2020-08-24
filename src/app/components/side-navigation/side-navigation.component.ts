@@ -1,6 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import {MenuItem} from '../../models/menu-item';
 import { SideNavigationService } from 'src/app/services/side-navigation.service';
+import {tap} from 'rxjs/operators';
 import { Observable } from 'rxjs';
 
 @Component({
@@ -17,7 +18,7 @@ export class SideNavigationComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.linkList$ = this.sideNavigationService.linkList$;
+    this.linkList$ = this.sideNavigationService.linkList$.pipe(tap(_ => console.log(_)));
   }
 
 }

@@ -23,6 +23,7 @@ export class MainComponent implements OnInit, AfterViewInit {
   }
 
   ngAfterViewInit(){
+    console.log(this.linkList)
     this.sideNavigationService.linkList = this.linkList;
   }
 

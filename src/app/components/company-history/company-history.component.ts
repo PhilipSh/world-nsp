@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { MenuItem } from 'src/app/models/menu-item';
+import { SideNavigationService } from 'src/app/services/side-navigation.service';
 
 @Component({
   selector: 'app-company-history',
@@ -7,9 +9,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CompanyHistoryComponent implements OnInit {
 
-  constructor() { }
+  linkList: MenuItem[] = [];
+
+  constructor(
+    public sideNavigationService: SideNavigationService
+  ) { }
 
   ngOnInit() {
+    this.sideNavigationService.linkList = this.linkList;
   }
 
 }

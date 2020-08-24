@@ -1,9 +1,12 @@
+@import '../../styles/main.scss';
+
 .title{
     text-transform: uppercase;
     font-weight: normal;
+    color: $main-color;
     font-size: 2em;
+    margin: 0.5em 0;
 }
-
 p{
     font-size: 14px;
 }
