@@ -10,9 +10,9 @@ import { MenuItem } from 'src/app/models/menu-item';
 export class BuyProductsComponent implements OnInit, AfterViewInit {
 
   linkList: MenuItem[] = [
-    {title: 'Беларусь', value: '#belarus'},
-    {title: 'Росиия', value: '#russia'},
-    {title: 'Украина', value: '#ukraine'}
+    {title: 'Беларусь', value: 'belarus'},
+    {title: 'Росиия', value: 'russia'},
+    {title: 'Украина', value: 'ukraine'}
   ];
 
   constructor(

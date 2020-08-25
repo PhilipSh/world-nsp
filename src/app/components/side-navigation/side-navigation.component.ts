@@ -3,6 +3,7 @@ import {MenuItem} from '../../models/menu-item';
 import { SideNavigationService } from 'src/app/services/side-navigation.service';
 import {tap} from 'rxjs/operators';
 import { Observable } from 'rxjs';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-side-navigation',
@@ -12,13 +13,23 @@ import { Observable } from 'rxjs';
 export class SideNavigationComponent implements OnInit {
 
   linkList$: Observable<MenuItem[]>;
+  route: string;
+
+  navigate(fragment: string){
+    this.router.navigate([], {fragment: fragment, skipLocationChange: true})
+  }
 
   constructor(
-    public sideNavigationService: SideNavigationService
-  ) { }
+    public sideNavigationService: SideNavigationService,
+    public router: Router
+  ) { 
+      router.events.subscribe(ev => {
+        this.route = router.url;
+      })
+    }
 
   ngOnInit() {
-    this.linkList$ = this.sideNavigationService.linkList$.pipe(tap(_ => console.log(_)));
+    this.linkList$ = this.sideNavigationService.linkList$;
   }
 
 }

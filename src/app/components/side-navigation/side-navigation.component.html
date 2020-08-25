@@ -1,3 +1,3 @@
 <aside>
-    <a *ngFor="let link of linkList$ | async" [routerLink]='"."' [fragment]="link.value" >{{link.title | uppercase }}</a>
+    <a *ngFor="let link of linkList$ | async" (click)="navigate(link.value)">{{link.title | uppercase }}</a>
 </aside>
