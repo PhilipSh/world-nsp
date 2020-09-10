@@ -16,7 +16,10 @@ export class SideNavigationComponent implements OnInit {
   route: string;
 
   navigate(fragment: string){
-    this.router.navigate([], {fragment: fragment, skipLocationChange: true})
+    if(fragment !== 'products')
+      this.router.navigate([], {fragment: fragment, skipLocationChange: true})
+    else 
+      window.location.href = 'https://natr.ru/catalog/bad';
   }
 
   constructor(

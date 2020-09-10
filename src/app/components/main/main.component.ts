@@ -13,6 +13,7 @@ export class MainComponent implements OnInit, AfterViewInit {
     {title: 'История компании', value: 'company-history'},
     {title: 'Конроль качества', value: 'quality-control'},
     {title: 'Сертификаты', value: 'certificates'},
+    {title: 'Продукция', value: 'products'}
   ];
   
   constructor(
