@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 
 import { faFacebookSquare, faVk, faOdnoklassnikiSquare, faViber } from '@fortawesome/free-brands-svg-icons';
+import { Router } from '@angular/router';
+import { MenuItem } from 'src/app/models/menu-item';
 
 @Component({
   selector: 'app-footer',
@@ -14,7 +16,20 @@ export class FooterComponent implements OnInit {
   faOdnoklassnikiSquare = faOdnoklassnikiSquare;
   faViber = faViber;
 
-  constructor() { }
+  menu: MenuItem[] = [
+    {title: 'Главная', value: '/'},
+    {title: 'Новости и акции', value: '/news'},
+    {title: 'Как купить продукцию', value: '/buy'},
+    {title: 'Партнерское соглашение', value: '/partnership'},
+  ]
+
+  constructor(
+    private router : Router
+  ) { }
+
+  navigate(route: string){
+    this.router.navigate([route])
+  }
 
   ngOnInit() {
   }

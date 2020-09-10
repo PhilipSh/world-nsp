@@ -1,12 +1,23 @@
 <footer>
     <div class="footer-text">
-        <span class="white">Сайт дистрибьютора компании Nature’s Sunshine Products (NSP)</span>
-        <span class="white">
-            Электронная почта:
-            <a class="white" href="mailto:fil3120025@gmail.com">
-                fil3120025@gmail.com
-            </a>
-        </span>
+        <div>
+            <p>Сайт дистрибьютора компании Nature’s Sunshine Products (NSP)</p>
+            <p>
+                Электронная почта:
+                <a href="mailto:worldnsp.as@gmail.com">
+                    worldnsp.as@gmail.com
+                </a>
+            </p>
+        </div>
+
+        <div class="divider"></div>
+
+        <ul class="nav-links">
+            <li *ngFor="let item of menu">
+                <a (click)="navigate(item.value)">{{item.title}}</a>
+            </li>
+        </ul>
+
     </div>
 
     <!-- TODO: change links -->

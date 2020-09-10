@@ -4,12 +4,15 @@ aside{
     top: calc(80px + 1em);
     display: flex;
     flex-direction: column;
+    align-items: flex-start;
+    padding: 2em;
+    width: 300px;
     :not(:last-child){
         margin-bottom: 0.5em;
     }
 }
 a{  
     font-size: 12px;
-    color: #666;
     text-decoration: none;
+    cursor: pointer;
 }

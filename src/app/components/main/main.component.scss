@@ -1,6 +1,27 @@
-.container{
+@import '../../styles/main.scss';
+
+/* Preview */ 
+.preview{
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    height: calc(100vh - 80px);
+    padding-top: 200px;
+    width: 100vw;
+    font-size: 10em;
+    font-family: 'Times New Roman', Times, serif;
+    color: #fff;
+    background-image: url(../../../assets/img/preview.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+/* Content */ 
+.content{
     display: grid;
     grid-template-rows: repeat(3, auto);
     grid-template-columns: 100%;
-    row-gap: 2em;
+    &>*{
+        padding-top: 2em;
+    }
 }

@@ -5,7 +5,7 @@ import { SideNavigationService } from 'src/app/services/side-navigation.service'
 @Component({
   selector: 'app-main',
   templateUrl: './main.component.html',
-  styleUrls: ['./main.component.scss']
+  styleUrls: ['./main.component.scss'],
 })
 export class MainComponent implements OnInit, AfterViewInit {
 
@@ -23,7 +23,6 @@ export class MainComponent implements OnInit, AfterViewInit {
   }
 
   ngAfterViewInit(){
-    console.log(this.linkList)
     this.sideNavigationService.linkList = this.linkList;
   }
 

@@ -11,7 +11,7 @@ export class MainMenuComponent implements OnInit {
 
   menu: MenuItem[] = [
     {title: 'Главная', value: '/'},
-    // {title: 'Новости и акции', value: '/news'},
+    {title: 'Новости и акции', value: '/news'},
     {title: 'Как купить продукцию', value: '/buy'},
     {title: 'Партнерское соглашение', value: '/partnership'},
   ]

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { SideNavigationService } from 'src/app/services/side-navigation.service';
 
 @Component({
   selector: 'app-news',
@@ -7,9 +8,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NewsComponent implements OnInit {
 
-  constructor() { }
+  constructor( 
+    private sideNavigationService: SideNavigationService
+    ) { }
 
-  ngOnInit() {
+  ngOnInit() {    
+    this.sideNavigationService.linkList = [];
   }
 
 }
