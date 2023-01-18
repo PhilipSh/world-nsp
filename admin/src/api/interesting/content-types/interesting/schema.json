@@ -1,0 +1,21 @@
+{
+  "kind": "singleType",
+  "collectionName": "interestings",
+  "info": {
+    "singularName": "interesting",
+    "pluralName": "interestings",
+    "displayName": "Interesting",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "links": {
+      "type": "component",
+      "repeatable": true,
+      "component": "shared.link"
+    }
+  }
+}

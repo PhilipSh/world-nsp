@@ -1,0 +1,25 @@
+{
+  "collectionName": "components_global_service_centers",
+  "info": {
+    "displayName": "ServiceCenter",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "name": {
+      "type": "string"
+    },
+    "description": {
+      "type": "text"
+    },
+    "workTime": {
+      "type": "text"
+    },
+    "phoneNumber": {
+      "type": "string"
+    },
+    "address": {
+      "type": "string"
+    }
+  }
+}

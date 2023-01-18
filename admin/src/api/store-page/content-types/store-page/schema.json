@@ -1,0 +1,21 @@
+{
+  "kind": "singleType",
+  "collectionName": "store_pages",
+  "info": {
+    "singularName": "store-page",
+    "pluralName": "store-pages",
+    "displayName": "StorePage",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "countries": {
+      "type": "component",
+      "repeatable": true,
+      "component": "stores.country"
+    }
+  }
+}
