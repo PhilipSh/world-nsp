@@ -27,7 +27,7 @@
   @apply w-[100%] mx-auto box-border;
 }
 .footer {
-  @apply px-[54px] py-[40px] box-content flex flex-col justify-start items-center bg-[url('~/assets/images/footer-bg.jpg')] text-white text-xs md:px-[150px] md:py-[75px] lg:px-[270px] lg:py-[120px] xl:px-[320px] xl:py-[140px];
+  @apply px-[54px] py-[40px] box-content flex flex-col justify-start items-center bg-[url('~/assets/images/footer-bg.jpg')] bg-no-repeat bg-cover text-white text-xs md:px-[150px] md:py-[75px] lg:px-[270px] lg:py-[120px] xl:px-[320px] xl:py-[140px];
 }
 .footer-divider {
   @apply border-t border-white opacity-[35%] w-[100%];
