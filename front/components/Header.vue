@@ -23,7 +23,30 @@
             Продукция
           </a>
 
-          <NuxtLink to="/" class="nav-link">Интересное</NuxtLink>
+          <div
+            class="extra-menu-container"
+            @mouseenter="toggleExtraLinks"
+            @mouseleave="toggleExtraLinks"
+          >
+            <button class="extra-button">
+              <span>Интересное</span>
+              <img src="~/assets/images/drop-down-arrow.svg" />
+            </button>
+            <div v-if="extraLinksOpen" class="extra-list">
+              <div v-if="extraLinks.length">
+                <a
+                  v-for="link in extraLinks"
+                  :key="link.id"
+                  :href="link.url"
+                  class="extra-link"
+                >
+                  {{ link.name }}
+                </a>
+              </div>
+
+              <div v-else class="empty-list">Список пуст</div>
+            </div>
+          </div>
         </nav>
       </div>
 
@@ -45,7 +68,9 @@
             Продукция
           </a>
 
-          <div class="mobile-nav-link" @click="getExtraLinks">Интересное</div>
+          <div class="mobile-nav-link" @click="toggleExtraLinks">
+            Интересное
+          </div>
 
           <a
             v-for="link in extraLinks"
@@ -75,10 +100,22 @@
   @apply visible md:invisible;
 }
 .nav-list {
-  @apply invisible space-x-[40px] flex justify-start items-center xs:max-lg:invisible xs:max-md:w-0  md:visible;
+  @apply invisible space-x-[20px] flex justify-start items-center xs:max-lg:invisible xs:max-md:w-0  md:visible;
 }
 .nav-link {
-  @apply text-base text-white uppercase hover:underline hover:underline-offset-4;
+  @apply text-base text-white uppercase py-[4px] px-[10px] hover:underline hover:underline-offset-4;
+}
+.extra-menu-container {
+  @apply relative;
+}
+.extra-button {
+  @apply flex justify-start items-center space-x-1 text-base text-white uppercase py-[4px] px-[10px];
+}
+.extra-list {
+  @apply bg-white drop-shadow-md absolute right-[10px] min-w-[200px] rounded-md px-[20px] py-[20px] flex flex-col justify-start items-start;
+}
+.extra-link {
+  @apply text-black hover:underline hover:underline-offset-4;
 }
 .mobile-menu {
   @apply invisible absolute top-0 left-0 h-screen w-[100%] bg-white z-10 flex flex-col justify-start items-end py-[24px] px-[20px];
@@ -95,10 +132,12 @@
 .transparent {
   background: transparent !important;
 }
+.empty-list {
+  @apply text-grey;
+}
 </style>
 
 <script lang="ts">
-import { Context } from "@nuxt/types";
 import Vue from "vue";
 
 interface Link {
@@ -117,12 +156,16 @@ export default Vue.extend({
   data() {
     return {
       menuOpen: false,
+      extraLinksOpen: false,
       extraLinks: [] as Link[],
     };
   },
   methods: {
     toggleMenu() {
       this.menuOpen = !this.menuOpen;
+    },
+    toggleExtraLinks() {
+      this.extraLinksOpen = !this.extraLinksOpen;
     },
     getExtraLinks() {
       this.$axios
@@ -134,6 +177,9 @@ export default Vue.extend({
           console.warn(error);
         });
     },
+  },
+  mounted() {
+    this.getExtraLinks();
   },
 });
 </script>
