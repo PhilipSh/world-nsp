@@ -23,6 +23,9 @@
 .logo {
   @apply h-[60px] md:h-[70px] lg:h-[90px];
 }
+.transparent {
+  background: transparent !important;
+}
 </style>
 
 <script lang="ts">
