@@ -15,13 +15,7 @@
           <NuxtLink to="/how-buy" class="nav-link">
             Как купить продукцию
           </NuxtLink>
-          <a
-            href="https://naturessunshine.ru/catalog/bad/"
-            target="_blank"
-            class="nav-link"
-          >
-            Продукция
-          </a>
+          <NuxtLink to="/products" class="nav-link"> Продукция </NuxtLink>
 
           <div
             class="extra-menu-container"
@@ -60,26 +54,26 @@
           <NuxtLink to="/how-buy" class="mobile-nav-link">
             Как купить продукцию
           </NuxtLink>
-          <a
-            href="https://naturessunshine.ru/catalog/bad/"
-            target="_blank"
-            class="mobile-nav-link"
-          >
-            Продукция
-          </a>
+          <NuxtLink to="/products" class="nav-link"> Продукция </NuxtLink>
 
-          <div class="mobile-nav-link" @click="toggleExtraLinks">
-            Интересное
+          <div
+            class="mobile-nav-link mobile-extra-button"
+            @click="toggleExtraLinks"
+          >
+            <span>Интересное</span>
+            <img src="~/assets/images/drop-down-arrow.svg" />
           </div>
 
-          <a
-            v-for="link in extraLinks"
-            :key="link.id"
-            :href="link.url"
-            class="mobile-nav-link"
-          >
-            {{ link.name }}
-          </a>
+          <div v-if="extraLinksOpen" class="extra-list">
+            <a
+              v-for="link in extraLinks"
+              :key="link.id"
+              :href="link.url"
+              class="mobile-extra-link"
+            >
+              {{ link.name }}
+            </a>
+          </div>
         </nav>
       </div>
     </div>
@@ -112,10 +106,10 @@
   @apply flex justify-start items-center space-x-1 text-base text-white uppercase py-[4px] px-[10px];
 }
 .extra-list {
-  @apply bg-white drop-shadow-md absolute right-[10px] min-w-[200px] rounded-md px-[20px] py-[20px] flex flex-col justify-start items-start;
+  @apply bg-white drop-shadow-md absolute right-[10px] min-w-[200px] w-auto rounded-md px-[20px] py-[20px] flex flex-col justify-start items-start;
 }
 .extra-link {
-  @apply text-black hover:underline hover:underline-offset-4;
+  @apply text-black hover:underline hover:underline-offset-4 whitespace-nowrap;
 }
 .mobile-menu {
   @apply invisible absolute top-0 left-0 h-screen w-[100%] bg-white z-10 flex flex-col justify-start items-end py-[24px] px-[20px];
@@ -128,6 +122,12 @@
 }
 .mobile-nav-link {
   @apply text-black text-right text-2xl font-bold hover:underline hover:underline-offset-8;
+}
+.mobile-extra-button {
+  @apply flex justify-start items-center space-x-2;
+}
+.mobile-extra-link {
+  @apply text-grey hover:underline hover:underline-offset-8 text-xl;
 }
 .transparent {
   background: transparent !important;
