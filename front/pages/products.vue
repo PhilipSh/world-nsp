@@ -5,10 +5,22 @@
     <section class="section flex-1">
       <div v-if="categories.length" class="category-list">
         <div v-for="category in categories" :key="category.id" class="category">
-          <h2 class="category-name">{{ category.name }}</h2>
-          <hr class="divider" />
+          <div
+            class="flex justify-start items-center space-x-2 cursor-pointer"
+            @click="toggleCategory(category)"
+          >
+            <h2 class="category-name">
+              {{ category.name }}
+            </h2>
+            <img
+              src="~/assets/images/caret-down.svg"
+              class="h-[20px]"
+              :class="{ 'rotate-180': category.opened }"
+            />
+          </div>
+          <hr v-if="category.opened" class="divider" />
 
-          <div class="product-list">
+          <div v-if="category.opened" class="product-list">
             <a
               v-for="product in category.products"
               :key="product.id"
@@ -33,7 +45,7 @@
   @apply w-[100%] mx-auto px-[20px] pt-[20px] pb-[80px] box-border lg:max-w-[1116px];
 }
 .category-list {
-  @apply flex flex-col space-y-[40px];
+  @apply flex flex-col space-y-[10px];
 }
 .category {
   @apply flex flex-col justify-start space-y-[12px];
@@ -63,6 +75,7 @@ interface Category {
   id: number;
   name: string;
   products: Array<Product>;
+  opened?: boolean;
 }
 
 interface Product {
@@ -77,9 +90,19 @@ export default {
       categories: [] as Category[],
     };
   },
+  methods: {
+    toggleCategory(category: Category) {
+      console.log(category);
+      category.opened = !category.opened;
+    },
+  },
   async asyncData({ $axios }: Context) {
     const response = await $axios.$get(`/api/product-page?populate=deep`);
-    return { categories: response?.data?.attributes?.categories ?? [] };
+    const categories = response?.data?.attributes?.categories.map(
+      (item: Category) => ({ ...item, opened: false })
+    );
+    console.log(categories);
+    return { categories: categories ?? [] };
   },
 };
 </script>
