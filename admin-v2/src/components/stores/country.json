@@ -1,0 +1,18 @@
+{
+  "collectionName": "components_stores_countries",
+  "info": {
+    "displayName": "Country",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "name": {
+      "type": "string"
+    },
+    "serviceCenters": {
+      "type": "component",
+      "repeatable": true,
+      "component": "stores.service-center"
+    }
+  }
+}
