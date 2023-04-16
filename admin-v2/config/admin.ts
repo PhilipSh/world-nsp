@@ -10,5 +10,4 @@ export default ({ env }) => ({
       salt: env("TRANSFER_TOKEN_SALT"),
     },
   },
-  url: env("PUBLIC_URL", "http://localhost:1337/admin"),
 });
