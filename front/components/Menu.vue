@@ -13,7 +13,7 @@
           <span>Интересное</span>
         </button>
         <div v-if="extraLinksOpen" class="extra-list">
-          <div v-if="extraLinks.length">
+          <template v-if="extraLinks.length">
             <a
               v-for="link in extraLinks"
               :key="link.id"
@@ -22,7 +22,7 @@
             >
               {{ link.name }}
             </a>
-          </div>
+          </template>
 
           <div v-else class="empty-list">Список пуст</div>
         </div>
