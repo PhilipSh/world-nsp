@@ -32,7 +32,7 @@
                   <img src="~/assets/images/icon-work-time.svg" />
                   <span> {{ serviceCenter.workTime }}</span>
                 </li>
-                <li v-if="serviceCenter.links" class="service-link-list">
+                <li v-if="serviceCenter.links.length" class="service-link-list">
                   <img src="~/assets/images/icon-link.svg" />
                   <a
                     v-for="link in serviceCenter.links"
