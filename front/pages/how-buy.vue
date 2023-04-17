@@ -20,14 +20,31 @@
                   <img src="~/assets/images/icon-address.svg" />
                   <span> {{ serviceCenter.address }}</span>
                 </li>
-                <li v-if="serviceCenter.phoneNumber" class="service-phone">
+                <li
+                  v-for="phoneNumber in serviceCenter.phoneNumbers"
+                  :key="phoneNumber.id"
+                  class="service-phone"
+                >
                   <img src="~/assets/images/icon-phone.svg" />
-                  <span>{{ serviceCenter.phoneNumber }}</span>
+                  <span>{{ phoneNumber.tel }}</span>
                 </li>
                 <li v-if="serviceCenter.workTime" class="service-work-time">
                   <img src="~/assets/images/icon-work-time.svg" />
                   <span> {{ serviceCenter.workTime }}</span>
                 </li>
+                <li v-if="serviceCenter.links" class="service-link-list">
+                  <img src="~/assets/images/icon-link.svg" />
+                  <a
+                    v-for="link in serviceCenter.links"
+                    :key="link.id"
+                    :href="link.url"
+                    target="_blank"
+                    class="service-link"
+                  >
+                    {{ link.name }}
+                  </a>
+                </li>
+
                 <li
                   v-if="serviceCenter.description"
                   class="service-description"
@@ -75,13 +92,19 @@
   @apply flex flex-col space-y-[10px] font-bold uppercase;
 }
 .service-adress {
-  @apply flex justify-start items-start space-x-[16px];
+  @apply flex justify-start items-center space-x-[16px];
 }
 .service-phone {
-  @apply flex justify-start items-start space-x-[16px];
+  @apply flex justify-start items-center space-x-[16px];
+}
+.service-link-list {
+  @apply flex justify-start items-center space-x-[16px];
+}
+.service-link {
+  @apply hover:text-green hover:underline hover:underline-offset-4;
 }
 .service-work-time {
-  @apply flex justify-start items-start space-x-[16px];
+  @apply flex justify-start items-center space-x-[16px];
 }
 .empty-list {
   @apply text-grey mt-[20px];
@@ -97,12 +120,24 @@ interface Country {
   serviceCenters: Array<ServiceCenter>;
 }
 
+interface PhoneNumber {
+  id: number;
+  tel: string;
+}
+
+interface Link {
+  id: number;
+  name: string;
+  url: string;
+}
+
 interface ServiceCenter {
   id: number;
   name: string;
+  phoneNumbers: PhoneNumber[];
+  links: Link[];
   address?: string;
   workTime?: string;
-  phoneNumber?: string;
   description?: string;
 }
 
