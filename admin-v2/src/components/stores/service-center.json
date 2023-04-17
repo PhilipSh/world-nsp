@@ -14,11 +14,18 @@
     "workTime": {
       "type": "string"
     },
-    "phoneNumber": {
+    "address": {
       "type": "string"
     },
-    "add": {
-      "type": "string"
+    "phoneNumbers": {
+      "type": "component",
+      "repeatable": true,
+      "component": "shared.phone-number"
+    },
+    "links": {
+      "type": "component",
+      "repeatable": true,
+      "component": "shared.link"
     }
   }
 }
