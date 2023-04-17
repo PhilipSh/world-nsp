@@ -134,10 +134,7 @@
           </ul>
         </div>
 
-        <a
-          class="product-button"
-          href="https://naturessunshine.ru/catalog/bad/"
-        >
+        <a class="product-button" href="/products" target="_blank">
           <Button :type="'secondary'"> Посмотреть </Button>
         </a>
       </div>
@@ -247,6 +244,7 @@
         <a
           class="partner-button"
           href="https://nsp25.com/signup.php?sid=3551823"
+          target="_blank"
         >
           <Button :type="'secondary'">Оформить</Button>
         </a>

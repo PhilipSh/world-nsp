@@ -10,6 +10,7 @@
         Материалы и описания продуктов взяты на официальном сайте компании
         <a
           href="https://naturessunshine.ru"
+          target="_blank"
           class="underline hover:text-light-green hover:underline"
           >naturessunshine.ru</a
         >
