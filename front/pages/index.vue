@@ -282,7 +282,7 @@
             href="tel:+375444720111"
             class="mt-[14px] hover:text-green hover:underline"
           >
-            + 375 44 472 01 11
+            + 375 444 720 111
           </a>
         </div>
 
