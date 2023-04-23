@@ -19,6 +19,7 @@
               :key="link.id"
               :href="link.url"
               class="extra-link"
+              target="_blank"
             >
               {{ link.name }}
             </a>

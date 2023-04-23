@@ -27,6 +27,7 @@
             :key="link.id"
             :href="link.url"
             class="mobile-nav-link"
+            target="_blank"
           >
             {{ link.name }}
           </a>
