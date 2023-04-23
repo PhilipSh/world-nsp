@@ -22,6 +22,18 @@
                 >
                   <span> {{ serviceCenter.description }}</span>
                 </li>
+                <li v-if="serviceCenter.links.length" class="service-link-list">
+                  <img src="~/assets/images/icon-link.svg" />
+                  <a
+                    v-for="link in serviceCenter.links"
+                    :key="link.id"
+                    :href="link.url"
+                    target="_blank"
+                    class="service-link"
+                  >
+                    {{ link.name }}
+                  </a>
+                </li>
                 <li v-if="serviceCenter.address" class="service-adress">
                   <img src="~/assets/images/icon-address.svg" />
                   <span> {{ serviceCenter.address }}</span>
@@ -37,18 +49,6 @@
                 <li v-if="serviceCenter.workTime" class="service-work-time">
                   <img src="~/assets/images/icon-work-time.svg" />
                   <span> {{ serviceCenter.workTime }}</span>
-                </li>
-                <li v-if="serviceCenter.links.length" class="service-link-list">
-                  <img src="~/assets/images/icon-link.svg" />
-                  <a
-                    v-for="link in serviceCenter.links"
-                    :key="link.id"
-                    :href="link.url"
-                    target="_blank"
-                    class="service-link"
-                  >
-                    {{ link.name }}
-                  </a>
                 </li>
               </ul>
             </div>
