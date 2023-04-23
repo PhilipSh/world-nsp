@@ -16,6 +16,12 @@
             >
               <h3 class="service-name">{{ serviceCenter.name }}</h3>
               <ul class="sevice-info-list">
+                <li
+                  v-if="serviceCenter.description"
+                  class="service-description"
+                >
+                  <span> {{ serviceCenter.description }}</span>
+                </li>
                 <li v-if="serviceCenter.address" class="service-adress">
                   <img src="~/assets/images/icon-address.svg" />
                   <span> {{ serviceCenter.address }}</span>
@@ -43,13 +49,6 @@
                   >
                     {{ link.name }}
                   </a>
-                </li>
-
-                <li
-                  v-if="serviceCenter.description"
-                  class="service-description"
-                >
-                  <span> {{ serviceCenter.description }}</span>
                 </li>
               </ul>
             </div>
