@@ -49,6 +49,7 @@ export default {
   },
 
   axios: {
+    //  baseURL: "https://world-nsp.com/strapi",
     baseURL: "http://localhost:1337", // Used as fallback if no runtime config is provided
   },
   publicRuntimeConfig: {
