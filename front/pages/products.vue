@@ -35,7 +35,13 @@
       </div>
 
       <div v-else class="empty-list">Список продукции пуст 😢</div>
+
+      <a class="price-link" target="_blank" :href="priceFileUrl">
+        <img src="~/assets/images/pdf-file.svg" />
+        <span>Полный каталог продукции по лучшим ценам</span>
+      </a>
     </section>
+
     <Footer />
   </div>
 </template>
@@ -62,7 +68,13 @@
 .product {
   @apply flex flex-col space-y-[10px] hover:text-green hover:underline hover:underline-offset-4;
 }
-
+.price-link {
+  @apply mt-[40px] flex space-x-2 justify-start items-center text-[20px] hover:text-green hover:underline hover:underline-offset-4;
+}
+.price-link img {
+  position: relative;
+  top: -2px;
+}
 .empty-list {
   @apply text-grey mt-[20px];
 }
@@ -88,11 +100,11 @@ export default {
   data: function () {
     return {
       categories: [] as Category[],
+      priceFileUrl: "" as string,
     };
   },
   methods: {
     toggleCategory(category: Category) {
-      console.log(category);
       category.opened = !category.opened;
     },
   },
@@ -101,8 +113,11 @@ export default {
     const categories = response?.data?.attributes?.categories.map(
       (item: Category) => ({ ...item, opened: false })
     );
-    console.log(categories);
-    return { categories: categories ?? [] };
+    const priceFileUrl =
+      $axios.defaults.baseURL +
+      response?.data?.attributes?.priceFile?.file?.data?.attributes?.url;
+
+    return { categories: categories ?? [], priceFileUrl: priceFileUrl ?? "" };
   },
 };
 </script>
