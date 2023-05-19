@@ -262,31 +262,27 @@
         <div class="contact-block">
           <div class="flex justify-center items-start space-x-[20px]">
             <a
-              href="https://www.facebook.com"
-              aria-label="Facebook"
-              target="_blank"
-            >
-              <img src="~/assets/images/facebook.svg" class="contact-image" />
-            </a>
-
-            <a
-              href="https://www.viber.com/ru"
-              aria-label="Viber"
-              target="_blank"
-            >
-              <img src="~/assets/images/viber.svg" class="contact-image" />
-            </a>
-
-            <a href="https://vk.com" aria-label="Vkontakte" target="_blank">
-              <img src="~/assets/images/vkontakte.svg" class="contact-image" />
-            </a>
-
-            <a
-              href=" https://t.me/and_shpen"
+              href="https://t.me/+375444720111"
               aria-label="Telegram"
               target="_blank"
             >
               <img src="~/assets/images/telegram.svg" class="contact-image" />
+            </a>
+
+            <a
+              href="https://wa.me/375444720111"
+              aria-label="Whats App"
+              target="_blank"
+            >
+              <img src="~/assets/images/whatsapp.svg" class="contact-image" />
+            </a>
+
+            <a
+              href="viber://chat?number=%2B375444720111"
+              aria-label="Viber"
+              target="_blank"
+            >
+              <img src="~/assets/images/viber.svg" class="contact-image" />
             </a>
           </div>
 
