@@ -1,7 +1,7 @@
 export default {
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
-    title: "world-nsp-web",
+    title: "NSP - сайт независимого дистрибьютора компании",
     htmlAttrs: {
       lang: "ru",
     },
@@ -11,7 +11,8 @@ export default {
       {
         hid: "description",
         name: "description",
-        content: "Заработок с NSP(Nature’s Sunshine Products)",
+        content:
+          "NSP(Nature’s Sunshine Products) - лидер в области здоровья и дистрибьюции. Наши продукты, основанные на натуральных ингредиентах, помогают улучшить физическое и эмоциональное состояние. Присоединяйтесь к нам в качестве независимого дистрибьютора и развивайте успешный бизнес.",
       },
     ],
     link: [{ rel: "icon", type: "image/x-icon", href: "/favicon.ico" }],
