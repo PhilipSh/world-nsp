@@ -4,7 +4,7 @@
 
 html {
   scroll-behavior: smooth;
-  overflow-x: hidden;
+  overflow: hidden;
 }
 
 body {
@@ -13,11 +13,11 @@ body {
   font-weight: 600;
   width: 100%;
   overflow-x: hidden;
-  min-height: 100vh;
+  overflow-y: auto;
+  height: 100vh;
   font-family: "Gilroy";
   font-weight: 400;
   box-sizing: border-box;
-  overflow-x: hidden;
 }
 
 @font-face {

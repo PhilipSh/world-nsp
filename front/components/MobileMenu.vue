@@ -43,7 +43,7 @@
   @apply inline-block md:hidden;
 }
 .mobile-menu {
-  @apply invisible absolute top-0 left-0 h-screen w-[100%] bg-white z-10 flex flex-col justify-start items-end py-[24px] px-[20px];
+  @apply invisible fixed top-0 left-0 h-[100%] w-[100%] bg-white z-10 flex flex-col justify-start items-end py-[24px] px-[20px];
 }
 .mobile-menu-open {
   @apply visible;
@@ -92,6 +92,11 @@ export default Vue.extend({
   methods: {
     toggleMenu() {
       this.menuOpen = !this.menuOpen;
+      if (!!this.menuOpen) {
+        document.body.style.overflowY = "hidden";
+      } else {
+        document.body.style.overflowY = "auto";
+      }
     },
   },
 });
