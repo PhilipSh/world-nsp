@@ -134,7 +134,7 @@
           </ul>
         </div>
 
-        <a class="product-button" href="/products" target="_blank">
+        <a class="product-button" href="/products">
           <Button :type="'secondary'"> Посмотреть </Button>
         </a>
       </div>
@@ -196,7 +196,8 @@
             вознаграждение в соответствии с
             <a
               class="underline hover:text-green hover:underline"
-              href="somehref"
+              href="https://naturessunshine.ru/business/career/"
+              target="_blank"
             >
               маркетинг-планом </a
             >, существующим в компании.
