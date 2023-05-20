@@ -23,7 +23,9 @@
                   <span> {{ serviceCenter.description }}</span>
                 </li>
                 <li v-if="serviceCenter.links.length" class="service-link-list">
-                  <img src="~/assets/images/icon-link.svg" />
+                  <span class="icon-wrapper">
+                    <img src="~/assets/images/icon-link.svg" />
+                  </span>
                   <a
                     v-for="link in serviceCenter.links"
                     :key="link.id"
@@ -35,7 +37,9 @@
                   </a>
                 </li>
                 <li v-if="serviceCenter.address" class="service-adress">
-                  <img src="~/assets/images/icon-address.svg" />
+                  <span class="icon-wrapper">
+                    <img src="~/assets/images/icon-address.svg" />
+                  </span>
                   <span> {{ serviceCenter.address }}</span>
                 </li>
                 <li
@@ -43,11 +47,15 @@
                   :key="phoneNumber.id"
                   class="service-phone"
                 >
-                  <img src="~/assets/images/icon-phone.svg" />
+                  <span class="icon-wrapper">
+                    <img src="~/assets/images/icon-phone.svg" />
+                  </span>
                   <span>{{ phoneNumber.tel }}</span>
                 </li>
                 <li v-if="serviceCenter.workTime" class="service-work-time">
-                  <img src="~/assets/images/icon-work-time.svg" />
+                  <span class="icon-wrapper">
+                    <img src="~/assets/images/icon-work-time.svg" />
+                  </span>
                   <span> {{ serviceCenter.workTime }}</span>
                 </li>
               </ul>
@@ -91,19 +99,22 @@
   @apply flex flex-col space-y-[10px] font-bold uppercase;
 }
 .service-adress {
-  @apply flex justify-start items-center space-x-[16px];
+  @apply flex justify-start items-start space-x-[16px];
 }
 .service-phone {
-  @apply flex justify-start items-center space-x-[16px];
+  @apply flex justify-start items-start space-x-[16px];
 }
 .service-link-list {
-  @apply flex justify-start items-center space-x-[16px];
+  @apply flex justify-start items-start space-x-[16px];
 }
 .service-link {
   @apply hover:text-green hover:underline hover:underline-offset-4;
 }
 .service-work-time {
-  @apply flex justify-start items-center space-x-[16px];
+  @apply flex justify-start items-start space-x-[16px];
+}
+.icon-wrapper {
+  @apply h-[24px] w-[24px] flex-shrink-0 flex justify-center items-center;
 }
 .empty-list {
   @apply text-grey mt-[20px];

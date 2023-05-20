@@ -3,7 +3,6 @@
 @tailwind utilities;
 
 html {
-  scroll-behavior: smooth;
   overflow: hidden;
 }
 
@@ -18,6 +17,7 @@ body {
   font-family: "Gilroy";
   font-weight: 400;
   box-sizing: border-box;
+  scroll-behavior: smooth;
 }
 
 @font-face {

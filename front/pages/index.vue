@@ -29,7 +29,7 @@
 
     <section
       id="about"
-      class="section mt-[40px] md:mt-[80px] lg:mt-[90px] xl:mt-[100px]"
+      class="section pt-[40px] md:pt-[80px] lg:pt-[90px] xl:pt-[100px]"
     >
       <h2 class="section-title">О компании</h2>
       <p class="mt-[20px] xl:mt-[40px]">

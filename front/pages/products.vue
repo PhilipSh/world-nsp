@@ -69,11 +69,11 @@
   @apply flex flex-col space-y-[10px] hover:text-green hover:underline hover:underline-offset-4;
 }
 .price-link {
-  @apply mt-[40px] flex space-x-2 justify-start items-center text-[20px] hover:text-green hover:underline hover:underline-offset-4;
+  @apply mt-[40px] flex space-x-2 justify-start items-start text-[20px] hover:text-green hover:underline hover:underline-offset-4;
 }
 .price-link img {
   position: relative;
-  top: -2px;
+  top: 2px;
 }
 .empty-list {
   @apply text-grey mt-[20px];
