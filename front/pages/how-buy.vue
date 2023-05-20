@@ -116,6 +116,10 @@
 .icon-wrapper {
   @apply h-[24px] w-[24px] flex-shrink-0 flex justify-center items-center;
 }
+
+.icon-wrapper img {
+  @apply relative top-[-1px];
+}
 .empty-list {
   @apply text-grey mt-[20px];
 }
