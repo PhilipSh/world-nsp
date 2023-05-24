@@ -8,6 +8,11 @@ export default {
     meta: [
       { charset: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
+      { name: "yandex-verification", content: "79f216b896cbdc88" },
+      {
+        name: "google-site-verification",
+        content: "kXvxi-RlVIf2sJsIZ9eoN-wUtWrgzTU7HHhc-GDK1zE",
+      },
       {
         hid: "description",
         name: "description",
