@@ -34,7 +34,7 @@
 
 <style scoped>
 .nav-list {
-  @apply space-x-[20px] flex justify-start items-center xs:max-lg:hidden xs:max-md:w-0 md:flex;
+  @apply space-x-[20px] hidden w-0 md:flex md:justify-start md:items-center md:w-auto;
 }
 .nav-link {
   @apply text-base text-white uppercase py-[4px] px-[10px] hover:underline hover:underline-offset-4;
