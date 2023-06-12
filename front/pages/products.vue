@@ -97,6 +97,19 @@ interface Product {
 }
 
 export default {
+  head() {
+    return {
+      title: "Каталог продукции NSP",
+      meta: [
+        {
+          hid: "description",
+          name: "description",
+          content:
+            "Полный каталог продукции NSP по лучшим ценам. Витамины и добавки без 40% розничной торговой надбавки по Карте Партнёра. Профессиональная линейка продукции, высокое качество.",
+        },
+      ],
+    };
+  },
   data: function () {
     return {
       categories: [] as Category[],

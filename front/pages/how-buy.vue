@@ -156,6 +156,19 @@ interface ServiceCenter {
 }
 
 export default {
+  head() {
+    return {
+      title: "Как купить продукцию NSP",
+      meta: [
+        {
+          hid: "description",
+          name: "description",
+          content:
+            "Адреса сервисных центров и доставок продукции NSP по всему миру",
+        },
+      ],
+    };
+  },
   data: function () {
     return {
       countries: [] as Country[],

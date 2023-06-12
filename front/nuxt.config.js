@@ -17,7 +17,7 @@ export default {
         hid: "description",
         name: "description",
         content:
-          "NSP(Nature’s Sunshine Products) - лидер в области здоровья и дистрибьюции. Наши продукты, основанные на натуральных ингредиентах, помогают улучшить физическое и эмоциональное состояние. Присоединяйтесь к нам в качестве независимого дистрибьютора и развивайте успешный бизнес.",
+          "НСП (NSP) в Мире Здоровья. Витамины и добавки без 40% розничной торговой надбавки по Карте Партнёра (оформление и консультация без оплаты). Профессиональная линейка продукции, высокое качество. Официальные поставки из США по всему миру, без посредников.",
       },
     ],
     link: [{ rel: "icon", type: "image/x-icon", href: "/favicon.ico" }],
@@ -55,7 +55,7 @@ export default {
   },
 
   axios: {
-    //  baseURL: "https://world-nsp.com/strapi",
+    // baseURL: "https://world-nsp.com/strapi",
     baseURL: "http://localhost:1337", // Used as fallback if no runtime config is provided
   },
   publicRuntimeConfig: {
