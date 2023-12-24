@@ -35,7 +35,7 @@
   @apply w-[100%] h-[285px] overflow-hidden rounded-xl;
 }
 .post-img {
-  @apply w-full h-full object-cover transition-transform transform-gpu hover:scale-110;
+  @apply w-full h-full object-cover transition-transform duration-300 transform-gpu hover:scale-110;
 }
 .post-title {
   @apply mt-6 font-semibold text-xl text-green;
@@ -44,7 +44,7 @@
   @apply mt-4 font-medium text-base;
 }
 .post-link {
-  @apply mt-4 py-[10px] px-[34px] font-semibold text-lg text-green border border-[#C1D7CF] rounded;
+  @apply mt-4 py-[10px] px-[34px] font-semibold text-lg text-green border border-[#C1D7CF] rounded hover:border-green duration-300;
 }
 </style>
 
