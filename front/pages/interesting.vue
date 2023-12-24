@@ -10,7 +10,7 @@
           </div>
           <h3 class="post-title">{{ post.title }}</h3>
           <p class="post-description">{{ post.description }}</p>
-          <a class="post-link" :href="post.link">Подробнее</a>
+          <a class="post-link" target="_blank" :href="post.link">Подробнее</a>
         </div>
       </div>
 
