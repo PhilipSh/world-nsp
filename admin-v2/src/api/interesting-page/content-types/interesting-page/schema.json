@@ -1,0 +1,20 @@
+{
+  "kind": "singleType",
+  "collectionName": "interesting_pages",
+  "info": {
+    "singularName": "interesting-page",
+    "pluralName": "interesting-pages",
+    "displayName": "InterestingPage"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "posts": {
+      "type": "component",
+      "repeatable": true,
+      "component": "posts.post"
+    }
+  }
+}

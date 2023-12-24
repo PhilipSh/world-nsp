@@ -6,8 +6,8 @@
       </NuxtLink>
 
       <div>
-        <MobileMenu :extraLinks="extraLinks" />
-        <Menu :extraLinks="extraLinks" />
+        <MobileMenu />
+        <Menu />
       </div>
     </div>
   </div>
@@ -33,38 +33,12 @@ import Vue from "vue";
 import Menu from "./Menu.vue";
 import MobileMenu from "./MobileMenu.vue";
 
-interface Link {
-  id: number;
-  name: string;
-  url: string;
-}
-
 export default Vue.extend({
   props: {
     isTransparent: {
       type: Boolean,
       default: false,
     },
-  },
-  data() {
-    return {
-      extraLinks: [] as Link[],
-    };
-  },
-  methods: {
-    getExtraLinks() {
-      this.$axios
-        .$get(`/api/interesting?populate=deep`)
-        .then((response) => {
-          this.extraLinks = response?.data?.attributes?.links ?? [];
-        })
-        .catch((error) => {
-          console.warn(error);
-        });
-    },
-  },
-  mounted() {
-    this.getExtraLinks();
   },
   components: { MobileMenu, Menu },
 });

@@ -49,6 +49,12 @@ export default {
         autoprefixer: {},
       },
     },
+    extend(config, { isClient }) {
+      // Extend only webpack config for client-bundle
+      if (isClient) {
+        config.devtool = "source-map";
+      }
+    },
   },
   server: {
     host: "0.0.0.0",
