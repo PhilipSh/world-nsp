@@ -27,7 +27,7 @@ export default {
   css: ["@/assets/css/main.css"],
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
-  plugins: [],
+  plugins: [{ src: "~/plugins/reveal.client.ts", mode: "client" }],
 
   // Auto import components: https://go.nuxtjs.dev/config-components
   components: true,
@@ -61,8 +61,8 @@ export default {
   },
 
   axios: {
-    // baseURL: "https://world-nsp.com/strapi",
-    baseURL: "http://localhost:1337", // Used as fallback if no runtime config is provided
+    baseURL: "https://world-nsp.com/strapi",
+    // baseURL: "http://localhost:1337",
   },
   publicRuntimeConfig: {
     axios: {

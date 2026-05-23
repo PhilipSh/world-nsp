@@ -3,21 +3,69 @@
 @tailwind utilities;
 
 html {
-  overflow: hidden;
+  scroll-behavior: smooth;
+  overflow-x: hidden;
 }
 
 body {
   margin: 0;
   position: relative;
-  font-weight: 600;
+  font-weight: 400;
   width: 100%;
   overflow-x: hidden;
-  overflow-y: auto;
-  height: 100vh;
-  font-family: "Gilroy";
-  font-weight: 400;
+  font-family: "Gilroy", system-ui, -apple-system, sans-serif;
+  font-size: 17px;
+  line-height: 1.55;
   box-sizing: border-box;
-  scroll-behavior: smooth;
+  color: #1A1A1A;
+  background: #ffffff;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+@media (min-width: 1024px) {
+  body {
+    font-size: 18px;
+  }
+}
+
+::selection {
+  background: #176C4D;
+  color: #ffffff;
+}
+
+/* Smoother focus ring for accessibility */
+:focus-visible {
+  outline: 2px solid #176C4D;
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+button:focus,
+a:focus {
+  outline: none;
+}
+
+/* Custom scrollbar */
+body::-webkit-scrollbar {
+  width: 10px;
+}
+body::-webkit-scrollbar-track {
+  background: #F3F4F6;
+}
+body::-webkit-scrollbar-thumb {
+  background: #176C4D;
+  border-radius: 8px;
+  border: 2px solid #F3F4F6;
+}
+body::-webkit-scrollbar-thumb:hover {
+  background: #0F4D37;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
 }
 
 @font-face {
@@ -25,6 +73,7 @@ body {
   src: url("../fonts/Gilroy-Regular.ttf");
   font-weight: 400;
   font-style: normal;
+  font-display: swap;
 }
 
 @font-face {
@@ -32,6 +81,7 @@ body {
   src: url("../fonts/Gilroy-Medium.ttf");
   font-weight: 500;
   font-style: normal;
+  font-display: swap;
 }
 
 @font-face {
@@ -39,4 +89,35 @@ body {
   src: url("../fonts/Gilroy-Bold.ttf");
   font-weight: 800;
   font-style: normal;
+  font-display: swap;
+}
+
+/* Reveal-on-scroll utility (IntersectionObserver pairs with .reveal class) */
+.reveal {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1),
+    transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: opacity, transform;
+}
+
+.reveal.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.reveal-delay-1 {
+  transition-delay: 0.1s;
+}
+.reveal-delay-2 {
+  transition-delay: 0.2s;
+}
+.reveal-delay-3 {
+  transition-delay: 0.3s;
+}
+
+/* Subtle dot-pattern for backgrounds */
+.bg-dot-pattern {
+  background-image: radial-gradient(circle, rgba(23, 108, 77, 0.08) 1px, transparent 1px);
+  background-size: 24px 24px;
 }

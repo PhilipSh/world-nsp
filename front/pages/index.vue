@@ -1,305 +1,439 @@
 <template>
-  <div class="text-sm md:text-base lg:text-lg">
-    <div
-      class="h-screen w-full bg-[url('~/assets/images/bg-mobile.jpg')] lg:bg-[url('~/assets/images/bg.jpg')] bg-center bg-cover"
-    >
-      <div class="relative h-[100%] grid grid-rows-[auto_1fr]">
-        <Header :isTransparent="true" />
+  <div class="page text-sm md:text-base lg:text-[17px]">
+    <!-- HERO -->
+    <div class="hero">
+      <div
+        class="hero-bg bg-[url('~/assets/images/bg-mobile.jpg')] lg:bg-[url('~/assets/images/bg.jpg')]"
+      ></div>
+      <div class="hero-overlay"></div>
 
-        <section
-          class="section flex flex-col justify-center items-center h-screen space-y-[30px] relative bottom-[80px] md:bottom-[90px] lg:bottom-[110px] lg:justify-center lg:items-start lg:space-y-[50px]"
-        >
-          <img
-            class="visible h-[92px] w-[92px] lg:invisible lg:h-0"
-            src="~/assets/images/logo-icon.svg"
-          />
+      <Header :isTransparent="true" />
 
-          <h1
-            class="text-[20px] text-center text-white uppercase leading-[1.2] w-[290px] md:text-[24px] md:w-[420px] md:leading-[1.1] lg:text-[34px] lg:text-left lg:w-[420px] lg:leading-[1.1] xl:w-[420px] xl:text-left xl:text-5xl xl:leading-[1.1]"
-          >
-            Настрой своё здоровье - построй свой бизнес
-          </h1>
+      <section class="hero-content section">
+        <span class="hero-eyebrow animate-fade-up">
+          Nature's Sunshine Products
+        </span>
 
-          <a href="#about">
-            <Button :type="'primary'">Подробнее</Button>
+        <img
+          class="hero-mobile-icon animate-scale-in lg:hidden"
+          src="~/assets/images/logo-icon.svg"
+          alt=""
+        />
+
+        <h1 class="hero-title animate-fade-up-delay-1">
+          Настрой&nbsp;своё здоровье — <br class="hidden lg:inline" />
+          <span class="hero-title-accent">построй свой бизнес</span>
+        </h1>
+
+        <p class="hero-subtitle animate-fade-up-delay-2">
+          Высококачественные витамины, фитопродукты и косметика из США
+          — без 40% розничной надбавки по&nbsp;Карте Партнёра.
+        </p>
+
+        <div class="hero-actions animate-fade-up-delay-3">
+          <a href="#partner" aria-label="Оформить карту партнёра бесплатно">
+            <Button :type="'primary'">Оформить карту бесплатно</Button>
           </a>
-        </section>
-      </div>
+          <a href="#about" class="hero-secondary-link">
+            ↓ Узнать подробнее
+          </a>
+        </div>
+
+        <p class="hero-helper animate-fade-up-delay-3">
+          Оформление и консультация — без оплаты. Нажмите кнопку выше,
+          чтобы начать.
+        </p>
+
+        <a href="#about" class="hero-scroll-hint" aria-hidden="true">
+          <span class="hero-scroll-dot"></span>
+        </a>
+      </section>
     </div>
 
+    <!-- ABOUT -->
     <section
       id="about"
-      class="section pt-[40px] md:pt-[80px] lg:pt-[90px] xl:pt-[100px]"
+      v-reveal
+      class="section pt-[60px] md:pt-[90px] lg:pt-[110px] xl:pt-[130px]"
     >
-      <h2 class="section-title">О компании</h2>
-      <p class="mt-[20px] xl:mt-[40px]">
-        Nature’s Sunshine Products(NSP) — международная компания с 50-ти летним
-        опытом в производстве натуральных продуктов для укрепления здоровья,
-        профилактики заболеваний и оздоровления организма в целом. Это
-        высококачественные, экологически чистые фитопродукты и фитокомплексы,
-        витамины, минералы и витаминно-минеральные комплексы, ухаживающая
-        косметика и средства гигиены.
+      <div class="section-header">
+        <span class="section-eyebrow">О компании</span>
+        <h2 class="section-title">
+          50 лет на службе <span class="text-accent">здоровья</span>
+        </h2>
+      </div>
+
+      <p class="section-lead mt-[24px] lg:mt-[32px]">
+        Nature's Sunshine Products (NSP) — международная компания с
+        полувековым опытом производства натуральных продуктов для укрепления
+        здоровья и профилактики заболеваний. Это качественные
+        фитокомплексы, витамины, минералы, ухаживающая косметика и средства
+        гигиены.
       </p>
 
-      <p class="mt-[20px] xl:mt-[40px]">Об NSP в цифрах:</p>
-
-      <div class="numbers-card">
+      <!-- Numbers card -->
+      <div class="numbers-card" v-reveal>
         <div class="number-block">
           <span class="number-title">50</span>
-          <span
-            >лет компания <br />
-            действует на рынке</span
-          >
+          <span class="number-suffix">лет</span>
+          <span class="number-caption">на международном рынке</span>
         </div>
-
+        <span class="number-divider"></span>
         <div class="number-block">
           <span class="number-title">70</span>
-          <span
-            >стран имеют <br />
-            представительства <br />
-            NSP</span
-          >
+          <span class="number-suffix">стран</span>
+          <span class="number-caption">с представительствами NSP</span>
         </div>
-
+        <span class="number-divider"></span>
         <div class="number-block">
           <span class="number-title">1 200</span>
-          <span>
-            уникальных формул продуктов <br />
-            разработано NSP для здоровья
-          </span>
+          <span class="number-suffix">формул</span>
+          <span class="number-caption">разработано для здоровья</span>
         </div>
       </div>
 
-      <p class="mt-[25px] lg:mt-[44px]">
-        Секрет популярности компании на мировом рынке кроется в качестве
-        выпускаемой продукции. Система контроля качества разработана с
-        превышением уровня отраслевых требований к качеству на всех этапах – от
-        исходного сырья до конечного продукта. Сырьё для выпускаемой продукции
-        закупается только из экологически чистых регионов мира, в которых сама
-        природа благоприятствует произрастанию данных видов, тщательно
-        проверяется и если выявляется несоответствие стандартам качества
-        компании, оно отвергается. Nature’s Sunshine Products строго соблюдает
-        технологические нормы и правила стандартов производства и выпускает
-        продукцию для здоровья по самому высокому стандарту качества GMP.
+      <p class="mt-[28px] lg:mt-[40px] text-grey-dark leading-relaxed">
+        Секрет популярности компании — в качестве. Система контроля
+        разработана с превышением отраслевых требований на всех этапах: от
+        исходного сырья до конечного продукта. Сырьё закупается только из
+        экологически чистых регионов мира, тщательно проверяется и
+        отвергается при несоответствии стандартам. NSP строго соблюдает
+        технологические нормы и выпускает продукцию по высшему стандарту
+        качества <span class="font-bold text-green">GMP</span>.
       </p>
 
-      <div
-        class="relative flex justify-center items-center mx-auto my-[20px] md:my-[40px] lg:my-[70px]"
-      >
+      <!-- Showcase -->
+      <div class="showcase" v-reveal>
         <img
-          class="w-[445px] md:w-[636px] lg:w-[803px]"
+          class="showcase-base"
           src="~/assets/images/set-of-product.jpg"
+          alt="Линейка продукции NSP"
         />
         <img
-          class="w-[120px] md:w-[240px] lg:w-[300px] absolute top-[-10%] right-[30%]"
+          class="showcase-badge"
           src="~/assets/images/sales-leader.png"
+          alt="Лидер продаж"
         />
         <img
-          class="w-[80px] md:w-[120px] lg:w-[160px] absolute bottom-[-5%] right-[40%]"
+          class="showcase-capsules"
           src="~/assets/images/capsules.png"
+          alt=""
         />
       </div>
 
-      <p>
-        Ещё одно преимущество компании Nature’s Sunshine Products – эффективный
-        сервис. Метод прямых продаж – это прямая связь производителя с
-        потребителем, которая коренным образом меняет модель покупки. Вся
-        продукция продаётся через специализированные сервисные центры и
-        собственные службы доставки. Убираются посредники, экономятся деньги,
-        повышаются сервис и качество обслуживания. В результате NSP предлагает
-        свою продукцию по доступной цене и спрос на нее постоянно растет, что
-        подтверждают миллионы довольных потребителей во всем мире. Честность и
-        надежность компании проверена временем. С 1972 года NSP не ушла ни из
-        одной страны, где начала свой бизнес и с каждым годом только добавляются
-        новые. Компания является открытым акционерным обществом, акции имеют
-        высокие котировки на бирже NASDAQ. И что ещё важно, NSP справедливо и
-        вовремя вознаграждает усилия каждого партнера.
+      <p class="text-grey-dark leading-relaxed">
+        Метод прямых продаж — это прямая связь производителя с
+        потребителем: убираются посредники, экономятся деньги, повышается
+        качество обслуживания. С 1972 года NSP не ушла ни из одной страны,
+        где начала бизнес. Компания — открытое акционерное общество, акции
+        котируются на бирже NASDAQ.
       </p>
     </section>
 
-    <section class="section mt-[30px] md:mt-[40px] lg:mt-[45px] xl:mt-[45px]">
-      <div class="product-card">
-        <h2 class="section-title product-title">
-          Каталог продукции NSP по лучшим ценам
+    <!-- HOW IT WORKS — 3 steps for elderly clarity -->
+    <section
+      v-reveal
+      class="section mt-[60px] md:mt-[80px] lg:mt-[100px] xl:mt-[120px]"
+    >
+      <div class="section-header">
+        <span class="section-eyebrow">Как начать</span>
+        <h2 class="section-title">
+          Стать партнёром за <span class="text-accent">3 простых шага</span>
         </h2>
+        <p class="section-lead mt-[16px]">
+          Не нужно никуда ехать и заполнять сложные документы — всё займёт
+          несколько минут.
+        </p>
+      </div>
 
-        <div class="product">
-          <img class="product-image" src="~/assets/images/bad.png" />
+      <ol class="how-steps">
+        <li class="how-step">
+          <span class="how-step-num">1</span>
+          <div>
+            <h3 class="how-step-title">Нажмите «Оформить карту»</h3>
+            <p class="how-step-text">
+              Ниже на странице есть большая зелёная кнопка
+              «Оформить&nbsp;карту». Нажмите на неё — откроется простая
+              форма.
+            </p>
+          </div>
+        </li>
+        <li class="how-step">
+          <span class="how-step-num">2</span>
+          <div>
+            <h3 class="how-step-title">Заполните анкету</h3>
+            <p class="how-step-text">
+              Укажите своё имя, телефон и адрес электронной почты. Если что
+              непонятно — позвоните нам, мы поможем.
+            </p>
+          </div>
+        </li>
+        <li class="how-step">
+          <span class="how-step-num">3</span>
+          <div>
+            <h3 class="how-step-title">Покупайте без наценки</h3>
+            <p class="how-step-text">
+              Получаете партнёрские цены — на 40% дешевле розницы, кэшбэк
+              до&nbsp;30% и бонусы за покупки.
+            </p>
+          </div>
+        </li>
+      </ol>
+
+      <div class="how-cta">
+        <a href="#partner" aria-label="Перейти к оформлению карты">
+          <Button :type="'secondary'">Оформить карту бесплатно</Button>
+        </a>
+        <span class="how-cta-helper">
+          Нужна помощь?
+          <a href="tel:+375444720111" class="how-cta-phone">
+            Позвоните: +375 444 720 111
+          </a>
+        </span>
+      </div>
+    </section>
+
+    <!-- CATALOG TEASER -->
+    <section
+      v-reveal
+      class="section mt-[60px] md:mt-[80px] lg:mt-[100px] xl:mt-[120px]"
+    >
+      <div class="product-card">
+        <div class="product-card-text">
+          <span class="product-eyebrow">Каталог</span>
+          <h2 class="product-title">
+            Продукция NSP <br />
+            по лучшим ценам
+          </h2>
+
           <ul class="product-props">
-            <li class="product-list-item">усиливает имунную активность</li>
+            <li class="product-list-item">Усиливает иммунную активность</li>
             <li class="product-list-item">
-              восстанавливает уровень железа в крови
+              Восстанавливает уровень железа в крови
             </li>
-            <li class="product-list-item">не раздражает слизистую ЖКТ</li>
+            <li class="product-list-item">Не раздражает слизистую ЖКТ</li>
           </ul>
+
+          <a class="product-cta" href="/products" aria-label="Открыть полный каталог продукции">
+            <Button :type="'secondary'">Открыть каталог</Button>
+          </a>
+          <p class="product-helper">→ Нажмите, чтобы увидеть всю продукцию</p>
         </div>
 
-        <a class="product-button" href="/products">
-          <Button :type="'secondary'"> Посмотреть </Button>
-        </a>
+        <div class="product-card-visual">
+          <div class="product-glow"></div>
+          <img class="product-image" src="~/assets/images/bad.png" alt="" />
+        </div>
       </div>
     </section>
 
-    <section class="section mt-[40px] lg:mt-[90px] xl:mt-[100px]">
-      <h2 class="section-title">Бизнес с NSP</h2>
+    <!-- BUSINESS -->
+    <section
+      v-reveal
+      class="section mt-[60px] md:mt-[90px] lg:mt-[110px] xl:mt-[130px]"
+    >
+      <div class="section-header">
+        <span class="section-eyebrow">Сотрудничество</span>
+        <h2 class="section-title">
+          Бизнес с <span class="text-accent">NSP</span>
+        </h2>
+        <p class="section-lead mt-[20px]">
+          Философия Nature's Sunshine — забота о здоровье людей в сочетании
+          со стабильным бизнесом. Компания предлагает
+          <span class="font-bold text-green">3 формата сотрудничества:</span>
+        </p>
+      </div>
 
-      <p class="mt-[20px]">
-        Философия Nature’s Sunshine — это забота о здоровье людей в сочетании с
-        возможностью стабильного бизнеса. Компания Nature’s Sunshine Products
-        предлагает <span class="font-bold">3 вида сотрудничества:</span>
-      </p>
-
-      <div
-        class="flex flex-col space-y-[30px] mt-[20px] lg:flex-row lg:justify-start lg:items-stretch lg:space-y-0 lg:space-x-[24px] lg:mt-[60px]"
-      >
-        <div class="step-card">
-          <span class="step-number">1</span>
+      <div class="steps-grid">
+        <article class="step-card" v-reveal>
+          <div class="step-head">
+            <span class="step-number">01</span>
+            <img
+              class="step-image"
+              src="~/assets/images/buisness-step-1.png"
+              alt=""
+            />
+          </div>
           <h3 class="step-title">Потребительская деятельность</h3>
           <p class="step-description">
-            Человек, заключивший партнерское соглашение с NSP, получает статус
-            партнера. Он имеет право приобретать продукцию без 40% розничной
-            надбавки, покупая ее в наших специализированных сервисных центрах
-            или через службы доставки, а так же участвовать в акциях компании.
-            Потребитель приобретает только ту продукцию и только тогда, когда он
-            в ней нуждается. Столько, сколько ему нужно. Кроме того, постоянные
-            потребители получают специальное вознаграждение от компании.
+            Получите статус партнёра — покупайте продукцию без 40%
+            розничной надбавки в сервисных центрах или через службы
+            доставки и участвуйте в акциях компании. Постоянные потребители
+            получают специальное вознаграждение от компании.
           </p>
-          <img class="step-image" src="~/assets/images/buisness-step-1.png" />
-        </div>
+        </article>
 
-        <div class="step-card">
-          <span class="step-number">2</span>
-          <h3 class="step-title">Рекламно - информационная деятельность</h3>
+        <article class="step-card" v-reveal>
+          <div class="step-head">
+            <span class="step-number">02</span>
+            <img
+              class="step-image"
+              src="~/assets/images/buisness-step-2.png"
+              alt=""
+            />
+          </div>
+          <h3 class="step-title">Рекламно-информационная</h3>
           <p class="step-description">
-            Партнер может рекомендовать продукцию компании своим знакомым и
-            незнакомым людям. В данном случае можно предложить человеку
-            заключить соглашение с компанией и этим дать возможность
-            пользоваться всеми преимуществами партнера NSP. При этом за покупки,
-            которые делают пригашенные лично Вами люди и партнеры Ваших людей,
-            компания выплачивает Вам комиссионное вознаграждение. Или предложить
-            продукцию по розничной цене (эта деятельность себя не совсем
-            оправдывает).
+            Рекомендуйте продукцию знакомым и предлагайте им стать
+            партнёрами NSP. За покупки приглашённых вами людей и партнёров
+            ваших партнёров компания выплачивает комиссионное
+            вознаграждение.
           </p>
-          <img class="step-image" src="~/assets/images/buisness-step-2.png" />
-        </div>
+        </article>
 
-        <div class="step-card">
-          <span class="step-number">3</span>
+        <article class="step-card" v-reveal>
+          <div class="step-head">
+            <span class="step-number">03</span>
+            <img
+              class="step-image"
+              src="~/assets/images/buisness-step-3.png"
+              alt=""
+            />
+          </div>
           <h3 class="step-title">Организаторская деятельность</h3>
           <p class="step-description">
-            Это построение своей коммерческой бизнес-структуры в рамках
-            компании. Вы привлекаете в этот бизнес людей, которые заинтересованы
-            быть либо просто потребителями продукции, либо заниматься
-            рекламно-информационной деятельностью, либо также строить свою
-            структуру. И обучаете их. И за товарооборот всей Вашей структуры,
-            постоянно растущей организации, NSP платит Вам комиссионное
-            вознаграждение в соответствии с
+            Постройте собственную бизнес-структуру в рамках компании. За
+            товарооборот вашей организации NSP платит комиссионное
+            вознаграждение согласно
             <a
-              class="underline hover:text-green hover:underline"
+              class="underline-offset-2 underline hover:text-green-dark transition-colors"
               href="https://naturessunshine.ru/business/career/"
               target="_blank"
-            >
-              маркетинг-планом </a
-            >, существующим в компании.
+              rel="noopener"
+              >маркетинг-плану</a
+            >.
           </p>
-          <img class="step-image" src="~/assets/images/buisness-step-3.png" />
-        </div>
+        </article>
       </div>
     </section>
 
-    <section class="section mt-[70px] lg:mt-[100px]">
-      <h2 class="section-title">Оформи карту партнера бесплатно</h2>
-
-      <div class="partner-card">
-        <div
-          class="flex flex-col-reverse justify-center items-center lg:flex-row"
-        >
-          <ul class="partner-list">
-            <li class="partner-list-item">
-              покупай продукцию компании по партнерским ценам, без 40% розничной
-              торговой надбавки
-            </li>
-            <li class="partner-list-item">получай кэшбэк от 5% до 30%</li>
-            <li class="partner-list-item">
-              заказывай продукцию через интернет-магазины и службы
-              интернет-доставки компании по всему миру
-            </li>
-            <li class="partner-list-item">
-              участвуй в акциях и получай бонусы
-            </li>
-            <li class="partner-list-item">
-              участвуй в Партнерской программе NSP
-            </li>
-            <li class="partner-list-item">
-              построй свой Международный бизнес с компанией NSP
-            </li>
-          </ul>
-
-          <img
-            class="partner-image"
-            src="../assets/images/partner-card.webp"
-            alt="Карта партнера"
-          />
-        </div>
-
-        <a
-          class="partner-button"
-          href="https://nsp25.com/signup.php?sid=3551823"
-          target="_blank"
-        >
-          <Button :type="'secondary'">Оформить</Button>
-        </a>
-      </div>
-    </section>
-
+    <!-- PARTNER -->
     <section
-      class="section mt-[50px] mb-[80px] md:mt-[80px] md:mb-[90px] lg:mt-[90 px]"
+      id="partner"
+      v-reveal
+      class="section mt-[60px] md:mt-[90px] lg:mt-[110px] xl:mt-[130px]"
     >
-      <h2 class="section-title">Мы всегда на связи</h2>
+      <div class="partner-card">
+        <div class="partner-card-bg"></div>
+        <div class="partner-card-inner">
+          <div class="partner-card-text">
+            <span class="section-eyebrow">Партнёрская карта</span>
+            <h2 class="section-title mt-[8px]">
+              Оформите карту партнёра
+              <span class="text-accent">бесплатно</span>
+            </h2>
 
-      <div
-        class="mt-[20px] flex flex-col justify-center items-start space-y-[10px] sm:flex-row sm:space-y-0 sm:space-x-[20px] md:mt-[40px] lg:mt-[60px] xl:mt-[80px]"
-      >
+            <ul class="partner-list">
+              <li class="partner-list-item">
+                Покупай продукцию без 40% розничной надбавки
+              </li>
+              <li class="partner-list-item">
+                Получай кэшбэк от 5% до 30%
+              </li>
+              <li class="partner-list-item">
+                Заказывай через интернет-магазины и службы доставки по
+                всему миру
+              </li>
+              <li class="partner-list-item">
+                Участвуй в акциях и получай бонусы
+              </li>
+              <li class="partner-list-item">
+                Строй международный бизнес с компанией NSP
+              </li>
+            </ul>
+
+            <a
+              class="partner-button"
+              href="https://nsp25.com/signup.php?sid=3551823"
+              target="_blank"
+              rel="noopener"
+              aria-label="Перейти к форме оформления карты партнёра"
+            >
+              <Button :type="'secondary'">Оформить карту бесплатно</Button>
+            </a>
+
+            <ul class="partner-trust">
+              <li>✓ Без оплаты</li>
+              <li>✓ Занимает 2 минуты</li>
+              <li>✓ Бесплатная консультация</li>
+            </ul>
+
+            <p class="partner-note">
+              Нажмите кнопку — откроется страница регистрации NSP. Если
+              нужна помощь, позвоните:
+              <a href="tel:+375444720111" class="partner-phone"
+                >+375 444 720 111</a
+              >
+            </p>
+          </div>
+
+          <div class="partner-card-visual">
+            <div class="partner-glow"></div>
+            <img
+              class="partner-image"
+              src="../assets/images/partner-card.webp"
+              alt="Карта партнёра"
+            />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACTS -->
+    <section
+      v-reveal
+      class="section mt-[60px] mb-[80px] md:mt-[90px] md:mb-[100px] lg:mt-[110px] lg:mb-[120px]"
+    >
+      <div class="section-header">
+        <span class="section-eyebrow">Контакты</span>
+        <h2 class="section-title">Мы всегда на&nbsp;связи</h2>
+      </div>
+
+      <div class="contacts-grid">
         <div class="contact-block">
-          <div class="flex justify-center items-start space-x-[20px]">
+          <span class="contact-label">Мессенджеры и телефон</span>
+          <div class="contact-icons">
             <a
               href="https://t.me/+375444720111"
               aria-label="Telegram"
               target="_blank"
+              rel="noopener"
+              class="contact-icon-link"
             >
-              <img src="~/assets/images/telegram.svg" class="contact-image" />
+              <img src="~/assets/images/telegram.svg" alt="" />
             </a>
-
             <a
               href="https://wa.me/375444720111"
-              aria-label="Whats App"
+              aria-label="WhatsApp"
               target="_blank"
+              rel="noopener"
+              class="contact-icon-link"
             >
-              <img src="~/assets/images/whatsapp.svg" class="contact-image" />
+              <img src="~/assets/images/whatsapp.svg" alt="" />
             </a>
-
             <a
               href="viber://chat?number=%2B375444720111"
               aria-label="Viber"
-              target="_blank"
+              class="contact-icon-link"
             >
-              <img src="~/assets/images/viber.svg" class="contact-image" />
+              <img src="~/assets/images/viber.svg" alt="" />
             </a>
           </div>
-
-          <a
-            href="tel:+375444720111"
-            class="mt-[14px] hover:text-green hover:underline"
-          >
+          <a href="tel:+375444720111" class="contact-value">
             + 375 444 720 111
           </a>
         </div>
 
         <div class="contact-block">
-          <img src="~/assets/images/mail.svg" class="contact-image" />
+          <span class="contact-label">Электронная почта</span>
+          <div class="contact-icons">
+            <span class="contact-icon-link contact-icon-static">
+              <img src="~/assets/images/mail.svg" alt="" />
+            </span>
+          </div>
           <a
             href="mailto:worldnsp.info@gmail.com"
-            class="mt-[14px] hover:text-green hover:underline"
+            class="contact-value break-all"
           >
             worldnsp.info@gmail.com
           </a>
@@ -308,57 +442,263 @@
     </section>
 
     <Footer />
+    <FloatingCall />
   </div>
 </template>
 
 <style scoped>
-/* Common */
+/* ============ Layout primitives ============ */
+
+.page {
+  @apply text-black;
+}
 
 .section {
-  @apply w-[100%] mx-auto px-[20px] box-border lg:max-w-[1116px];
+  @apply w-[100%] mx-auto px-[20px] box-border lg:max-w-[1116px] lg:px-[40px];
+}
+
+.section-header {
+  @apply flex flex-col;
+}
+
+.section-eyebrow {
+  @apply text-xs md:text-sm uppercase tracking-[0.22em] text-accent font-bold;
 }
 
 .section-title {
-  @apply text-[20px] text-green uppercase font-bold lg:text-[24px] xl:text-[30px];
+  @apply mt-[10px] text-[26px] leading-[1.15] font-bold text-green
+         md:text-[32px] lg:text-[40px] xl:text-[44px];
 }
 
-/* Section About */
+.section-lead {
+  @apply text-grey-dark leading-relaxed max-w-[760px];
+}
+
+/* ============ HERO ============ */
+
+.hero {
+  @apply relative w-full min-h-[100dvh] overflow-hidden;
+}
+
+.hero-bg {
+  @apply absolute inset-0 bg-center bg-cover;
+}
+
+.hero-overlay {
+  @apply absolute inset-0 bg-gradient-hero;
+}
+
+/* Локальный scrim — мягкое затемнение точно под текстом, остальная картинка сочная */
+.hero-overlay::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: radial-gradient(
+    ellipse 50% 45% at 26% 50%,
+    rgba(8, 40, 28, 0.5) 0%,
+    rgba(8, 40, 28, 0.2) 45%,
+    transparent 70%
+  );
+}
+
+@media (max-width: 1023px) {
+  .hero-overlay::after {
+    background: radial-gradient(
+      ellipse 95% 50% at 50% 55%,
+      rgba(8, 40, 28, 0.55) 0%,
+      rgba(8, 40, 28, 0.2) 55%,
+      transparent 80%
+    );
+  }
+}
+
+.hero-content {
+  @apply relative z-10 flex flex-col justify-center min-h-[100dvh] py-[120px] gap-[20px] items-center text-center
+         lg:items-start lg:text-left lg:py-[160px] lg:gap-[26px];
+}
+
+.hero-eyebrow {
+  @apply inline-flex items-center text-xs md:text-sm uppercase tracking-[0.28em] font-bold
+         px-[18px] py-[8px] rounded-full bg-green-deep/40 backdrop-blur-sm border border-white/30 text-white shadow-soft;
+}
+
+.hero-mobile-icon {
+  @apply h-[80px] w-[80px] my-[6px];
+}
+
+.hero-title {
+  @apply text-white font-bold uppercase leading-[1.1] tracking-tight
+         text-[28px] max-w-[340px]
+         md:text-[36px] md:max-w-[520px]
+         lg:text-[48px] lg:max-w-[620px]
+         xl:text-[56px] xl:max-w-[680px];
+  text-shadow: 0 2px 20px rgba(8, 40, 28, 0.75), 0 1px 3px rgba(0, 0, 0, 0.4);
+}
+
+.hero-title-accent {
+  @apply text-white;
+}
+
+.hero-subtitle {
+  @apply text-white leading-relaxed text-[16px] md:text-[17px] lg:text-[19px]
+         max-w-[420px] lg:max-w-[520px];
+  text-shadow: 0 2px 12px rgba(10, 53, 38, 0.6), 0 1px 2px rgba(0, 0, 0, 0.25);
+}
+
+.hero-actions {
+  @apply mt-[8px] flex flex-col items-center gap-[16px] lg:flex-row lg:items-center lg:gap-[24px];
+}
+
+.hero-secondary-link {
+  @apply text-base md:text-lg text-white/85 underline underline-offset-[6px] decoration-white/40
+         transition-colors duration-300 hover:text-white hover:decoration-white;
+}
+
+.hero-helper {
+  @apply mt-[6px] text-sm md:text-base text-white/90 max-w-[420px]
+         text-center lg:text-left;
+  text-shadow: 0 1px 8px rgba(10, 53, 38, 0.55);
+}
+
+.hero-scroll-hint {
+  @apply hidden lg:flex absolute left-1/2 -translate-x-1/2 bottom-[36px]
+         w-[24px] h-[40px] rounded-full border-2 border-white/40 items-start justify-center pt-[6px];
+}
+
+.hero-scroll-dot {
+  @apply block w-[4px] h-[8px] rounded-full bg-white/80 animate-float;
+}
+
+/* ============ NUMBERS ============ */
 
 .numbers-card {
-  @apply bg-light-green mt-[20px] flex flex-col-reverse justify-center items-start rounded-md md:mt-[30px] lg:flex-row lg:justify-between lg:items-start lg:py-10 lg:px-20 xl:mt-[40px];
+  @apply relative mt-[28px] rounded-[20px] overflow-hidden bg-gradient-mint
+         shadow-card border border-light-green
+         flex flex-col items-stretch
+         lg:flex-row lg:items-stretch lg:justify-between
+         px-[24px] py-[28px] lg:px-[56px] lg:py-[44px] gap-[24px] lg:gap-[16px];
 }
+
 .number-block {
-  @apply flex flex-col w-fit py-[25px] px-[16px];
+  @apply flex flex-col items-start gap-[4px] py-[8px];
 }
 
 .number-title {
-  @apply text-[96px] font-bold text-green leading-none lg:text-[140px];
+  @apply text-[72px] lg:text-[104px] xl:text-[120px] font-bold text-green leading-[0.95] tabular-nums tracking-tight;
 }
 
-/* Go to catalog */
+.number-suffix {
+  @apply text-base lg:text-lg font-bold text-green-dark uppercase tracking-wider mt-[4px];
+}
+
+.number-caption {
+  @apply text-sm text-grey-dark leading-snug max-w-[200px];
+}
+
+.number-divider {
+  @apply hidden lg:block w-px self-stretch bg-green/15;
+}
+
+/* ============ SHOWCASE ============ */
+
+.showcase {
+  @apply relative flex justify-center items-center mx-auto my-[32px] md:my-[56px] lg:my-[80px];
+}
+
+.showcase-base {
+  @apply w-[445px] md:w-[636px] lg:w-[803px] drop-shadow-[0_20px_30px_rgba(23,108,77,0.18)];
+}
+
+.showcase-badge {
+  @apply w-[120px] md:w-[200px] lg:w-[260px] absolute top-[-10%] right-[20%] lg:right-[28%]
+         animate-float drop-shadow-[0_8px_16px_rgba(212,165,116,0.4)];
+}
+
+.showcase-capsules {
+  @apply w-[80px] md:w-[120px] lg:w-[160px] absolute bottom-[-5%] right-[36%];
+}
+
+/* ============ HOW STEPS (elderly-friendly) ============ */
+
+.how-steps {
+  @apply mt-[36px] grid grid-cols-1 gap-[16px] lg:grid-cols-3 lg:gap-[20px] list-none p-0;
+}
+
+.how-step {
+  @apply relative flex items-start gap-[20px] p-[24px] lg:p-[28px]
+         bg-white border border-grey-light rounded-[20px] shadow-card
+         transition-all duration-300;
+}
+
+.how-step:hover {
+  @apply border-green/50 shadow-lift -translate-y-[2px];
+}
+
+.how-step-num {
+  @apply flex-shrink-0 inline-flex items-center justify-center
+         w-[56px] h-[56px] lg:w-[64px] lg:h-[64px]
+         rounded-full bg-green text-white text-[28px] lg:text-[32px]
+         font-bold leading-none shadow-soft;
+}
+
+.how-step-title {
+  @apply text-lg lg:text-xl font-bold text-green leading-tight mb-[6px];
+}
+
+.how-step-text {
+  @apply text-base text-grey-dark leading-relaxed;
+}
+
+.how-cta {
+  @apply mt-[32px] flex flex-col items-center gap-[14px]
+         lg:flex-row lg:justify-center lg:gap-[28px] text-center;
+}
+
+.how-cta-helper {
+  @apply text-base text-grey-dark;
+}
+
+.how-cta-phone {
+  @apply font-bold text-green hover:text-green-dark underline underline-offset-4
+         transition-colors duration-300;
+}
+
+.product-helper {
+  @apply mt-[14px] text-sm text-grey-dark;
+}
+
+/* ============ CATALOG TEASER ============ */
 
 .product-card {
-  @apply py-[36px] px-[20px] bg-light-green flex flex-wrap flex-col justify-start items-center md:h-[300px] md:p-[40px] md:items-start lg:px-[100px] lg:py-[70px] lg:h-[440px] lg:items-start;
+  @apply relative bg-white border border-grey-light rounded-[24px] overflow-hidden
+         px-[24px] py-[36px] md:px-[40px] md:py-[48px] lg:px-[64px] lg:py-[64px]
+         flex flex-col lg:flex-row lg:items-center lg:gap-[40px]
+         shadow-card transition-all duration-500;
+}
+
+.product-card:hover {
+  @apply shadow-lift -translate-y-[2px];
+}
+
+.product-card-text {
+  @apply flex-1 max-w-[440px];
+}
+
+.product-eyebrow {
+  @apply text-xs uppercase tracking-[0.22em] text-accent font-bold;
 }
 
 .product-title {
-  @apply order-1 md:order-1 md:w-[240px] lg:order-1 lg:w-[290px];
-}
-
-.product {
-  @apply flex justify-start items-center mt-[40px] order-2 md:mt-0 md:order-3 lg:order-3 lg:mt-0 lg:ml-[90px] lg:my-auto;
-}
-
-.product-image {
-  @apply h-[140px] translate-x-[30%] md:h-[200px] lg:h-[260px];
+  @apply mt-[10px] text-[22px] md:text-[26px] lg:text-[32px] font-bold text-green leading-tight;
 }
 
 .product-props {
-  @apply ml-[30px] list-none space-y-[20px];
+  @apply mt-[24px] flex flex-col gap-[14px] list-none;
 }
 
 .product-list-item {
-  @apply leading-none w-[150px] relative;
+  @apply relative pl-[34px] leading-snug text-grey-dark;
 }
 
 .product-list-item::before {
@@ -366,50 +706,107 @@
   background-image: url("../assets/images/list-item-icon.svg");
   background-repeat: no-repeat;
   position: absolute;
-  width: 20px;
-  height: 20px;
+  width: 22px;
+  height: 22px;
   top: 0;
-  left: -24px;
+  left: 0;
 }
 
-.product-button {
-  @apply order-3 mt-[40px] md:order-2 md:mt-[70px] lg:order-2 lg:mt-[120px];
+.product-cta {
+  @apply inline-block mt-[28px];
 }
 
-/* Section buisness */
+.product-card-visual {
+  @apply relative flex justify-center items-center mt-[24px] lg:mt-0;
+}
+
+.product-glow {
+  @apply absolute w-[260px] h-[260px] lg:w-[340px] lg:h-[340px] rounded-full blur-3xl bg-green/15 -z-0;
+}
+
+.product-image {
+  @apply relative z-10 h-[160px] md:h-[220px] lg:h-[280px] object-contain
+         transition-transform duration-500 ease-out-soft;
+}
+
+.product-card:hover .product-image {
+  transform: translateY(-6px) rotate(-2deg);
+}
+
+/* ============ STEPS ============ */
+
+.steps-grid {
+  @apply mt-[40px] grid grid-cols-1 lg:grid-cols-3 gap-[20px] lg:gap-[24px];
+}
 
 .step-card {
-  @apply bg-light-green drop-shadow-md p-[16px] pb-[52px] box-border rounded-md flex flex-row flex-wrap justify-start items-end relative lg:p-[30px] lg:flex-col lg:items-start;
+  @apply relative bg-white border border-grey-light rounded-[20px]
+         p-[24px] lg:p-[28px] shadow-card transition-all duration-500 ease-out-soft;
+}
+
+.step-card:hover {
+  @apply shadow-lift -translate-y-[4px] border-green/50;
+}
+
+.step-head {
+  @apply flex items-start justify-between mb-[16px];
 }
 
 .step-number {
-  @apply text-green text-[96px] leading-none font-bold lg:absolute lg:translate-y-[-80px];
-}
-
-.step-title {
-  @apply text-lg uppercase font-bold text-green ml-[30px] w-[180px] lg:text-xl lg:m-0 lg:mt-[30px];
-}
-
-.step-description {
-  @apply mt-[20px] lg:mt-[25px];
+  @apply text-green/70 text-[44px] lg:text-[56px] font-bold leading-none tabular-nums;
 }
 
 .step-image {
-  @apply absolute bottom-[-20px] right-[20px];
+  @apply h-[80px] lg:h-[100px] object-contain opacity-90 transition-transform duration-500;
 }
 
-/* Parnter card */
+.step-card:hover .step-image {
+  transform: scale(1.06);
+}
+
+.step-title {
+  @apply text-lg lg:text-xl font-bold text-green leading-tight uppercase tracking-wide;
+}
+
+.step-description {
+  @apply mt-[12px] text-grey-dark leading-relaxed;
+}
+
+/* ============ PARTNER ============ */
 
 .partner-card {
-  @apply bg-light-green px-[16px] py-[30px] flex flex-col mt-[20px] lg:p-[50px];
+  @apply relative rounded-[28px] overflow-hidden shadow-card border border-light-green;
+}
+
+.partner-card-bg {
+  @apply absolute inset-0 bg-gradient-mint;
+}
+.partner-card-bg::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: radial-gradient(
+    circle at top right,
+    rgba(212, 165, 116, 0.18) 0%,
+    transparent 50%
+  );
+}
+
+.partner-card-inner {
+  @apply relative px-[24px] py-[36px] md:px-[44px] md:py-[48px] lg:px-[60px] lg:py-[64px]
+         flex flex-col-reverse gap-[32px] lg:flex-row lg:items-center lg:justify-between lg:gap-[48px];
+}
+
+.partner-card-text {
+  @apply flex-1 max-w-[520px];
 }
 
 .partner-list {
-  @apply ml-[24px] list-none;
+  @apply mt-[24px] flex flex-col gap-[12px] list-none;
 }
 
 .partner-list-item {
-  @apply relative mt-[10px];
+  @apply relative pl-[34px] text-grey-dark leading-snug;
 }
 
 .partner-list-item::before {
@@ -417,28 +814,100 @@
   background-image: url("../assets/images/list-item-icon.svg");
   background-repeat: no-repeat;
   position: absolute;
-  width: 20px;
-  height: 20px;
+  width: 22px;
+  height: 22px;
   top: 0;
-  left: -24px;
-}
-
-.partner-image {
-  @apply w-[100%] max-w-[360px] sm:w-[325px] lg:w-[325px];
+  left: 0;
 }
 
 .partner-button {
-  @apply mt-[36px] text-center;
+  @apply inline-block mt-[28px];
 }
 
-/* Contact */
+.partner-trust {
+  @apply mt-[20px] flex flex-wrap gap-x-[20px] gap-y-[8px] text-base text-green-dark font-bold list-none p-0;
+}
+
+.partner-note {
+  @apply mt-[16px] text-base text-grey-dark leading-relaxed max-w-[480px];
+}
+
+.partner-phone {
+  @apply font-bold text-green hover:text-green-dark underline underline-offset-4 whitespace-nowrap;
+}
+
+.partner-card-visual {
+  @apply relative flex justify-center items-center;
+}
+
+.partner-glow {
+  @apply absolute w-[260px] h-[260px] lg:w-[340px] lg:h-[340px] rounded-full blur-3xl bg-accent/20;
+}
+
+.partner-image {
+  @apply relative z-10 w-[100%] max-w-[300px] lg:max-w-[340px]
+         drop-shadow-[0_18px_28px_rgba(23,108,77,0.18)]
+         transition-transform duration-500 ease-out-soft;
+}
+
+.partner-card:hover .partner-image {
+  transform: rotate(-3deg) translateY(-4px);
+}
+
+/* ============ CONTACTS ============ */
+
+.contacts-grid {
+  @apply mt-[28px] grid grid-cols-1 sm:grid-cols-2 gap-[16px] lg:gap-[20px];
+}
 
 .contact-block {
-  @apply flex flex-col justify-start items-center w-[100%] border-grey border rounded-[4px] px-[40px] py-[38px] md:px-[30px] md:py-[60px] lg:px-[45px] lg:py-[80px] xl:px-[56px] xl:py-[100px];
+  @apply flex flex-col items-center text-center
+         px-[24px] py-[36px] md:px-[28px] md:py-[44px] lg:px-[40px] lg:py-[56px]
+         rounded-[20px] bg-white border border-grey-light shadow-card
+         transition-all duration-500 ease-out-soft;
 }
 
-.contact-image {
-  @apply h-[36px] md:h-[40px] lg:h-[50px] xl:h-[60px];
+.contact-block:hover {
+  @apply shadow-lift -translate-y-[3px] border-green/50;
+}
+
+.contact-label {
+  @apply text-xs uppercase tracking-[0.22em] text-grey font-medium;
+}
+
+.contact-icons {
+  @apply mt-[20px] flex items-center justify-center gap-[14px];
+}
+
+.contact-icon-link {
+  @apply inline-flex items-center justify-center w-[52px] h-[52px] rounded-full
+         bg-light-green text-green
+         transition-all duration-300 ease-out-soft
+         hover:bg-green hover:-translate-y-[2px] shadow-soft;
+}
+
+.contact-icon-link img {
+  @apply h-[24px] w-[24px] transition-all duration-300;
+}
+
+.contact-icon-link:hover img {
+  filter: brightness(0) invert(1);
+}
+
+.contact-icon-static {
+  @apply pointer-events-none;
+}
+
+.contact-icon-static:hover {
+  @apply bg-light-green translate-y-0;
+}
+
+.contact-icon-static:hover img {
+  filter: none;
+}
+
+.contact-value {
+  @apply mt-[22px] text-lg lg:text-xl font-bold text-green-dark transition-colors duration-300 hover:text-green;
 }
 </style>
 
