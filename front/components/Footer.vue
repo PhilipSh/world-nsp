@@ -30,9 +30,10 @@
             >+ 375 444 720 111</a
           >
           <a
-            href="mailto:worldnsp.info@gmail.com"
+            :href="emailHref"
             class="footer-link break-all"
-            >worldnsp.info@gmail.com</a
+            @click="revealEmail"
+            >{{ emailDisplay }}</a
           >
 
           <div class="footer-socials">
@@ -43,7 +44,7 @@
               rel="noopener"
               class="footer-social"
             >
-              <img src="~/assets/images/telegram.svg" alt="" />
+              <img src="~/assets/images/telegram.svg" alt="Telegram NSP" />
             </a>
             <a
               href="https://wa.me/375444720111"
@@ -52,14 +53,14 @@
               rel="noopener"
               class="footer-social"
             >
-              <img src="~/assets/images/whatsapp.svg" alt="" />
+              <img src="~/assets/images/whatsapp.svg" alt="WhatsApp NSP" />
             </a>
             <a
               href="viber://chat?number=%2B375444720111"
               aria-label="Viber"
               class="footer-social"
             >
-              <img src="~/assets/images/viber.svg" alt="" />
+              <img src="~/assets/images/viber.svg" alt="Viber NSP" />
             </a>
           </div>
         </div>
@@ -90,9 +91,38 @@
 <script lang="ts">
 import Vue from "vue";
 export default Vue.extend({
+  data() {
+    return {
+      emailRevealed: false,
+    };
+  },
   computed: {
     year() {
       return new Date().getFullYear();
+    },
+    emailUser(): string {
+      return ["worldnsp", "info"].join(".");
+    },
+    emailDomain(): string {
+      return ["gmail", "com"].join(".");
+    },
+    emailDisplay(): string {
+      return this.emailRevealed
+        ? `${this.emailUser}@${this.emailDomain}`
+        : `${this.emailUser} [собака] ${this.emailDomain}`;
+    },
+    emailHref(): string {
+      return this.emailRevealed
+        ? `mailto:${this.emailUser}@${this.emailDomain}`
+        : "#";
+    },
+  },
+  methods: {
+    revealEmail(e: Event) {
+      if (!this.emailRevealed) {
+        e.preventDefault();
+        this.emailRevealed = true;
+      }
     },
   },
 });

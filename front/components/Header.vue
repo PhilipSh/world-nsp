@@ -9,7 +9,7 @@
   >
     <div class="menu">
       <NuxtLink to="/" class="logo-link" aria-label="На главную">
-        <img src="~/assets/images/logo.svg" alt="World NSP" class="logo" />
+        <img src="~/assets/images/logo.svg" alt="World NSP — независимый дистрибьютор Nature's Sunshine Products" class="logo" />
       </NuxtLink>
 
       <div class="menu-right">

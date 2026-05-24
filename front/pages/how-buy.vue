@@ -286,16 +286,33 @@ interface ServiceCenter {
 
 export default {
   head() {
+    const url = "https://world-nsp.com/how-buy";
+    const title =
+      "Как купить продукцию NSP — сервисные центры и доставка по миру";
+    const description =
+      "Адреса сервисных центров NSP и служб доставки Nature's Sunshine Products по всему миру. Купите витамины и БАДы NSP с доставкой по партнёрской цене.";
+    const image = "https://world-nsp.com/og-image.jpg";
     return {
-      title: "Как купить продукцию NSP",
+      title,
       meta: [
+        { hid: "description", name: "description", content: description },
+        { hid: "og:title", property: "og:title", content: title },
         {
-          hid: "description",
-          name: "description",
-          content:
-            "Адреса сервисных центров и доставок продукции NSP по всему миру",
+          hid: "og:description",
+          property: "og:description",
+          content: description,
         },
+        { hid: "og:url", property: "og:url", content: url },
+        { hid: "og:image", property: "og:image", content: image },
+        { hid: "twitter:title", name: "twitter:title", content: title },
+        {
+          hid: "twitter:description",
+          name: "twitter:description",
+          content: description,
+        },
+        { hid: "twitter:image", name: "twitter:image", content: image },
       ],
+      link: [{ hid: "canonical", rel: "canonical", href: url }],
     };
   },
   data: function () {

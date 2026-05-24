@@ -207,15 +207,33 @@ interface Image {
 
 export default {
   head() {
+    const url = "https://world-nsp.com/interesting";
+    const title =
+      "Блог о здоровье и продукции NSP — статьи Nature's Sunshine";
+    const description =
+      "Статьи о здоровье, нутрициологии и продукции NSP (Nature's Sunshine Products). Полезные материалы о витаминах, БАДах и натуральных добавках для здоровья.";
+    const image = "https://world-nsp.com/og-image.jpg";
     return {
-      title: "Интересное из мира NSP",
+      title,
       meta: [
+        { hid: "description", name: "description", content: description },
+        { hid: "og:title", property: "og:title", content: title },
         {
-          hid: "description",
-          name: "description",
-          content: "Статьи на разные темы в категории здоровья",
+          hid: "og:description",
+          property: "og:description",
+          content: description,
         },
+        { hid: "og:url", property: "og:url", content: url },
+        { hid: "og:image", property: "og:image", content: image },
+        { hid: "twitter:title", name: "twitter:title", content: title },
+        {
+          hid: "twitter:description",
+          name: "twitter:description",
+          content: description,
+        },
+        { hid: "twitter:image", name: "twitter:image", content: image },
       ],
+      link: [{ hid: "canonical", rel: "canonical", href: url }],
     };
   },
   data: function () {

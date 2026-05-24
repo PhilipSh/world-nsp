@@ -17,13 +17,17 @@
         <img
           class="hero-mobile-icon animate-scale-in lg:hidden"
           src="~/assets/images/logo-icon.svg"
-          alt=""
+          alt="Логотип NSP Nature's Sunshine Products"
         />
 
         <h1 class="hero-title animate-fade-up-delay-1">
           Настрой&nbsp;своё здоровье — <br class="hidden lg:inline" />
           <span class="hero-title-accent">построй свой бизнес</span>
         </h1>
+        <span class="sr-only">
+          NSP Nature's Sunshine — натуральные витамины, БАДы и фитопрепараты
+          по партнёрской цене без 40% розничной наценки.
+        </span>
 
         <p class="hero-subtitle animate-fade-up-delay-2">
           Высококачественные витамины, фитопродукты и косметика из США
@@ -117,7 +121,7 @@
         <img
           class="showcase-capsules"
           src="~/assets/images/capsules.png"
-          alt=""
+          alt="Капсулы Nature's Sunshine"
         />
       </div>
 
@@ -222,7 +226,7 @@
 
         <div class="product-card-visual">
           <div class="product-glow"></div>
-          <img class="product-image" src="~/assets/images/bad.png" alt="" />
+          <img class="product-image" src="~/assets/images/bad.png" alt="БАД NSP — биологически активная добавка Nature's Sunshine" />
         </div>
       </div>
     </section>
@@ -251,7 +255,8 @@
             <img
               class="step-image"
               src="~/assets/images/buisness-step-1.png"
-              alt=""
+              alt="Потребительская деятельность с NSP"
+              loading="lazy"
             />
           </div>
           <h3 class="step-title">Потребительская деятельность</h3>
@@ -269,7 +274,8 @@
             <img
               class="step-image"
               src="~/assets/images/buisness-step-2.png"
-              alt=""
+              alt="Рекламно-информационная деятельность NSP"
+              loading="lazy"
             />
           </div>
           <h3 class="step-title">Рекламно-информационная</h3>
@@ -287,7 +293,8 @@
             <img
               class="step-image"
               src="~/assets/images/buisness-step-3.png"
-              alt=""
+              alt="Организаторская деятельность — построение бизнеса с NSP"
+              loading="lazy"
             />
           </div>
           <h3 class="step-title">Организаторская деятельность</h3>
@@ -372,7 +379,8 @@
             <img
               class="partner-image"
               src="../assets/images/partner-card.webp"
-              alt="Карта партнёра"
+              alt="Карта Партнёра NSP Nature's Sunshine — бесплатное оформление"
+              loading="lazy"
             />
           </div>
         </div>
@@ -400,7 +408,7 @@
               rel="noopener"
               class="contact-icon-link"
             >
-              <img src="~/assets/images/telegram.svg" alt="" />
+              <img src="~/assets/images/telegram.svg" alt="Telegram NSP" />
             </a>
             <a
               href="https://wa.me/375444720111"
@@ -409,14 +417,14 @@
               rel="noopener"
               class="contact-icon-link"
             >
-              <img src="~/assets/images/whatsapp.svg" alt="" />
+              <img src="~/assets/images/whatsapp.svg" alt="WhatsApp NSP" />
             </a>
             <a
               href="viber://chat?number=%2B375444720111"
               aria-label="Viber"
               class="contact-icon-link"
             >
-              <img src="~/assets/images/viber.svg" alt="" />
+              <img src="~/assets/images/viber.svg" alt="Viber NSP" />
             </a>
           </div>
           <a href="tel:+375444720111" class="contact-value">
@@ -428,16 +436,94 @@
           <span class="contact-label">Электронная почта</span>
           <div class="contact-icons">
             <span class="contact-icon-link contact-icon-static">
-              <img src="~/assets/images/mail.svg" alt="" />
+              <img src="~/assets/images/mail.svg" alt="Email NSP" />
             </span>
           </div>
           <a
-            href="mailto:worldnsp.info@gmail.com"
+            :href="emailHref"
             class="contact-value break-all"
+            @click="revealEmail"
           >
-            worldnsp.info@gmail.com
+            {{ emailDisplay }}
           </a>
         </div>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section
+      v-reveal
+      class="section mt-[60px] mb-[80px] md:mt-[90px] md:mb-[100px] lg:mt-[110px] lg:mb-[120px]"
+    >
+      <div class="section-header">
+        <span class="section-eyebrow">Вопросы и ответы</span>
+        <h2 class="section-title">
+          Часто задаваемые <span class="text-accent">вопросы об NSP</span>
+        </h2>
+      </div>
+
+      <div class="faq-list">
+        <details class="faq-item">
+          <summary class="faq-question">
+            Что такое Карта Партнёра NSP и сколько она стоит?
+          </summary>
+          <p class="faq-answer">
+            Карта Партнёра NSP — это бесплатное партнёрское соглашение с
+            компанией Nature's Sunshine Products. Оформление и консультация
+            полностью без оплаты. Карта даёт скидку 40% от розничной цены на
+            всю продукцию NSP, кэшбэк от 5% до 30% и доступ к партнёрской
+            программе.
+          </p>
+        </details>
+
+        <details class="faq-item">
+          <summary class="faq-question">
+            Чем отличается продукция NSP от аптечных витаминов?
+          </summary>
+          <p class="faq-answer">
+            Nature's Sunshine Products производит продукцию по международному
+            стандарту GMP с собственным контролем качества от исходного сырья
+            до готового продукта. Сырьё закупается только из экологически
+            чистых регионов. Компания работает с 1972 года и представлена в
+            70 странах.
+          </p>
+        </details>
+
+        <details class="faq-item">
+          <summary class="faq-question">
+            Как купить продукцию NSP без 40% наценки?
+          </summary>
+          <p class="faq-answer">
+            Необходимо оформить бесплатную Карту Партнёра NSP. После
+            активации вы покупаете любую продукцию по партнёрской цене в
+            сервисных центрах NSP, через службы доставки или интернет-магазины
+            компании по всему миру.
+          </p>
+        </details>
+
+        <details class="faq-item">
+          <summary class="faq-question">
+            Можно ли построить бизнес с NSP?
+          </summary>
+          <p class="faq-answer">
+            Да. NSP предлагает 3 вида сотрудничества: потребительская
+            деятельность, рекламно-информационная деятельность и
+            организаторская деятельность (построение собственной структуры).
+            За товарооборот вашей структуры компания выплачивает комиссионное
+            вознаграждение по официальному маркетинг-плану.
+          </p>
+        </details>
+
+        <details class="faq-item">
+          <summary class="faq-question">
+            Откуда поставляется продукция NSP?
+          </summary>
+          <p class="faq-answer">
+            Официальные поставки осуществляются напрямую из США, без
+            посредников. Доставка организована по всему миру через
+            собственные сервисные центры и службы доставки компании.
+          </p>
+        </details>
       </div>
     </section>
 
@@ -909,6 +995,56 @@
 .contact-value {
   @apply mt-[22px] text-lg lg:text-xl font-bold text-green-dark transition-colors duration-300 hover:text-green;
 }
+
+/* ============ FAQ ============ */
+
+.faq-list {
+  @apply mt-[28px] lg:mt-[40px] flex flex-col gap-[14px] lg:gap-[18px];
+}
+
+.faq-item {
+  @apply rounded-[16px] border border-light-green bg-white px-[20px] py-[18px]
+         lg:px-[28px] lg:py-[22px] shadow-soft transition-all duration-300 ease-out-soft;
+}
+
+.faq-item[open] {
+  @apply border-green/50 shadow-card;
+}
+
+.faq-question {
+  @apply cursor-pointer list-none font-bold text-green text-base lg:text-lg
+         flex justify-between items-start gap-[16px];
+}
+
+.faq-question::-webkit-details-marker {
+  display: none;
+}
+
+.faq-question::after {
+  content: "+";
+  @apply text-green text-2xl leading-none font-normal transition-transform duration-300;
+}
+
+.faq-item[open] .faq-question::after {
+  transform: rotate(45deg);
+}
+
+.faq-answer {
+  @apply mt-[12px] text-grey-dark text-sm lg:text-base leading-relaxed;
+}
+
+/* Accessibility helper */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
 </style>
 
 <script lang="ts">
@@ -916,17 +1052,122 @@ import Vue from "vue";
 
 export default Vue.extend({
   name: "indexPage",
-  head() {
+  data() {
     return {
-      title: "NSP - сайт независимого дистрибьютора компании",
-      meta: [
+      emailRevealed: false,
+    };
+  },
+  computed: {
+    emailUser(): string {
+      return ["worldnsp", "info"].join(".");
+    },
+    emailDomain(): string {
+      return ["gmail", "com"].join(".");
+    },
+    emailDisplay(): string {
+      return this.emailRevealed
+        ? `${this.emailUser}@${this.emailDomain}`
+        : `${this.emailUser} [собака] ${this.emailDomain}`;
+    },
+    emailHref(): string {
+      return this.emailRevealed
+        ? `mailto:${this.emailUser}@${this.emailDomain}`
+        : "#";
+    },
+  },
+  methods: {
+    revealEmail(e: Event) {
+      if (!this.emailRevealed) {
+        e.preventDefault();
+        this.emailRevealed = true;
+      }
+    },
+  },
+  head() {
+    const url = "https://world-nsp.com/";
+    const title =
+      "NSP Nature's Sunshine — витамины и БАДы без 40% наценки";
+    const description =
+      "Купите витамины и БАДы NSP (Nature's Sunshine) без 40% розничной наценки по Карте Партнёра. Бесплатное оформление, кэшбэк до 30%, доставка по миру.";
+    const image = "https://world-nsp.com/og-image.jpg";
+
+    const faqSchema = {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      mainEntity: [
         {
-          hid: "description",
-          name: "description",
-          content:
-            "НСП (NSP) в Мире Здоровья. Витамины и добавки без 40% розничной торговой надбавки по Карте Партнёра (оформление и консультация без оплаты). Профессиональная линейка продукции, высокое качество. Официальные поставки из США по всему миру, без посредников.",
+          "@type": "Question",
+          name: "Что такое Карта Партнёра NSP и сколько она стоит?",
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: "Карта Партнёра NSP — это бесплатное партнёрское соглашение с компанией Nature's Sunshine Products. Оформление и консультация полностью без оплаты. Карта даёт скидку 40% от розничной цены на всю продукцию NSP, кэшбэк от 5% до 30% и доступ к партнёрской программе.",
+          },
+        },
+        {
+          "@type": "Question",
+          name: "Чем отличается продукция NSP от аптечных витаминов?",
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: "Nature's Sunshine Products производит продукцию по международному стандарту GMP с собственным контролем качества от исходного сырья до готового продукта. Сырьё закупается только из экологически чистых регионов. Компания работает с 1972 года и представлена в 70 странах.",
+          },
+        },
+        {
+          "@type": "Question",
+          name: "Как купить продукцию NSP без 40% наценки?",
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: "Необходимо оформить бесплатную Карту Партнёра NSP. После активации вы покупаете любую продукцию по партнёрской цене в сервисных центрах NSP, через службы доставки или интернет-магазины компании по всему миру.",
+          },
+        },
+        {
+          "@type": "Question",
+          name: "Можно ли построить бизнес с NSP?",
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: "Да. NSP предлагает 3 вида сотрудничества: потребительская деятельность, рекламно-информационная деятельность и организаторская деятельность (построение собственной структуры). За товарооборот вашей структуры компания выплачивает комиссионное вознаграждение по официальному маркетинг-плану.",
+          },
+        },
+        {
+          "@type": "Question",
+          name: "Откуда поставляется продукция NSP?",
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: "Официальные поставки осуществляются напрямую из США, без посредников. Доставка организована по всему миру через собственные сервисные центры и службы доставки компании.",
+          },
         },
       ],
+    };
+
+    return {
+      title,
+      meta: [
+        { hid: "description", name: "description", content: description },
+        { hid: "og:title", property: "og:title", content: title },
+        {
+          hid: "og:description",
+          property: "og:description",
+          content: description,
+        },
+        { hid: "og:url", property: "og:url", content: url },
+        { hid: "og:image", property: "og:image", content: image },
+        { hid: "og:type", property: "og:type", content: "website" },
+        { hid: "twitter:title", name: "twitter:title", content: title },
+        {
+          hid: "twitter:description",
+          name: "twitter:description",
+          content: description,
+        },
+        { hid: "twitter:image", name: "twitter:image", content: image },
+      ],
+      link: [{ hid: "canonical", rel: "canonical", href: url }],
+      script: [
+        {
+          hid: "ld-faq",
+          type: "application/ld+json",
+          json: faqSchema,
+        },
+      ],
+      __dangerouslyDisableSanitizers: ["script"],
     };
   },
 });

@@ -36,8 +36,8 @@
               "
               @click="toggleCategory(category)"
             >
-              <h2 class="category-name">{{ category.name }}</h2>
-              <span class="category-meta">
+              <span class="category-text">
+                <h2 class="category-name">{{ category.name }}</h2>
                 <span class="category-count">
                   {{ category.products && category.products.length }}
                   {{
@@ -46,6 +46,8 @@
                       : "продуктов"
                   }}
                 </span>
+              </span>
+              <span class="category-meta">
                 <span class="category-hint">
                   {{ category.opened ? "Свернуть" : "Открыть" }}
                 </span>
@@ -167,28 +169,33 @@
 }
 
 .category-head {
-  @apply w-full flex items-center justify-between gap-[16px] py-[18px] px-[20px] lg:py-[22px] lg:px-[28px]
+  @apply w-full flex items-center justify-between gap-[12px] py-[14px] px-[16px]
+         md:py-[18px] md:px-[20px] lg:py-[22px] lg:px-[28px]
          cursor-pointer text-left transition-colors duration-300 hover:bg-mint/60;
 }
 
+.category-text {
+  @apply flex flex-col items-start min-w-0 flex-1 gap-[4px];
+}
+
 .category-name {
-  @apply text-lg lg:text-xl font-bold text-green uppercase tracking-wide leading-tight;
+  @apply text-base md:text-lg lg:text-xl font-bold text-green uppercase tracking-wide leading-tight;
 }
 
 .category-meta {
-  @apply flex items-center gap-[14px] shrink-0;
+  @apply flex items-center gap-[12px] lg:gap-[14px] shrink-0;
 }
 
 .category-count {
-  @apply text-sm lg:text-base text-grey-dark font-medium tabular-nums whitespace-nowrap;
+  @apply text-xs md:text-sm lg:text-base text-grey-dark font-medium tabular-nums whitespace-nowrap;
 }
 
 .category-hint {
-  @apply hidden md:inline-block text-sm font-bold text-green uppercase tracking-wider;
+  @apply hidden lg:inline-block text-sm font-bold text-green uppercase tracking-wider;
 }
 
 .caret {
-  @apply inline-flex items-center justify-center w-[32px] h-[32px] rounded-full bg-light-green;
+  @apply inline-flex items-center justify-center w-[36px] h-[36px] rounded-full bg-light-green shrink-0;
 }
 
 .caret-icon {
@@ -288,16 +295,33 @@ interface Product {
 
 export default {
   head() {
+    const url = "https://world-nsp.com/products";
+    const title =
+      "Каталог продукции NSP — витамины, БАДы и фитопрепараты Nature's Sunshine";
+    const description =
+      "Полный каталог продукции NSP по партнёрским ценам без 40% наценки. Витамины, БАДы, фитопрепараты Nature's Sunshine Products высокого качества по стандарту GMP.";
+    const image = "https://world-nsp.com/og-image.jpg";
     return {
-      title: "Каталог продукции NSP",
+      title,
       meta: [
+        { hid: "description", name: "description", content: description },
+        { hid: "og:title", property: "og:title", content: title },
         {
-          hid: "description",
-          name: "description",
-          content:
-            "Полный каталог продукции NSP по лучшим ценам. Витамины и добавки без 40% розничной торговой надбавки по Карте Партнёра. Профессиональная линейка продукции, высокое качество.",
+          hid: "og:description",
+          property: "og:description",
+          content: description,
         },
+        { hid: "og:url", property: "og:url", content: url },
+        { hid: "og:image", property: "og:image", content: image },
+        { hid: "twitter:title", name: "twitter:title", content: title },
+        {
+          hid: "twitter:description",
+          name: "twitter:description",
+          content: description,
+        },
+        { hid: "twitter:image", name: "twitter:image", content: image },
       ],
+      link: [{ hid: "canonical", rel: "canonical", href: url }],
     };
   },
   data: function () {
